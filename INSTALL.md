@@ -101,3 +101,44 @@ If you encounter issues:
 1. Check the [GitHub Issues](https://github.com/delect-aj/PhyloGCNE/issues)
 2. Review the README.md for additional information
 3. Ensure all dependencies are correctly installed
+
+## PyTorch Geometric Installation
+
+This project requires PyTorch Geometric for graph neural network operations. Installation can be tricky due to version dependencies.
+
+### Quick Installation
+
+```bash
+# Install PyTorch first (choose appropriate version for your system)
+pip install torch torchvision torchaudio
+
+# Then install torch-geometric
+pip install torch-geometric
+```
+
+### Detailed Instructions
+
+See [INSTALL_TORCHGEOMETRIC.md](INSTALL_TORCHGEOMETRIC.md) for complete installation guide, including troubleshooting for CUDA versions and system dependencies.
+
+### Verification
+
+```bash
+python -c "import torch_geometric; print(f'PyTorch Geometric version: {torch_geometric.__version__}')"
+```
+
+## Complete Installation Example
+
+```bash
+# Create and activate environment
+conda create -n phylogcne python=3.9
+conda activate phylogcne
+
+# Install PyTorch (with CUDA if available)
+pip install torch torchvision torchaudio
+
+# Install torch-geometric
+pip install torch-geometric
+
+# Install other dependencies
+pip install -r requirements.txt
+```

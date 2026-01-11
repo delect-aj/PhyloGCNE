@@ -1,0 +1,83 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files (large files that shouldn't be in git)
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pkl
+*.pickle
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.tiff
+*.bmp
+
+# Temporary files
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# Project specific exclusions
+# Exclude large data files and model files
+data/*/output/*.pkl
+data/*/output/*.pth
+data/*/output/*.npy
+data/*/output/*.npz
+data/*/data/*.biom
+data/*/data/*.h5
+data/*/data/*.hdf5
+data/*/data/*.csv
+data/*/data/*.tsv
+
+# Exclude results directory large files
+results/*.pdf
+results/*.png
+results/*.jpg
+results/*.jpeg
+results/*.gif
+results/__pycache__/
+results/.ipynb_checkpoints/
+
+# Exclude script directory checkpoints
+script/.ipynb_checkpoints/

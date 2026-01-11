@@ -1,15 +1,15 @@
 # PhyloGCNE: Phylogenetic Graph Convolutional Network for Microbial Data Analysis
 
-PhyloGCNE is a deep learning framework that integrates phylogenetic information with Graph Convolutional Networks (GCNs) for microbial data analysis and disease prediction.
+PhyloGCNE is a deep learning framework that integrates phylogenetic information with Graph Convolutional Network with edge features (GCNE) for microbial data analysis.
 
 ## Overview
 
-This project implements a phylogenetic-aware GCN model for analyzing microbial abundance data from various diseases including:
+This project implements a phylogenetic-aware GCNE model for analyzing microbial abundance data from various microbiome phenotype including:
+- Synthetic data for method validation
 - Colorectal Cancer (CRC) - 16S and WGS data
 - Inflammatory Bowel Disease (IBD) - 16S data
 - Type 2 Diabetes (T2D) - WGS data
 - Dietary Fiber intervention studies
-- Synthetic data for method validation
 
 ## Project Structure
 
@@ -23,12 +23,13 @@ PhyloGCNE/
 │   ├── Model_explain.ipynb # Model interpretation
 │   └── *.R                # R scripts for visualization
 ├── data/                   # Dataset configurations
-│   ├── CRC_16S/           # CRC 16S data configuration
-│   ├── CRC_WGS/           # CRC WGS data configuration
-│   ├── IBD_16S/           # IBD 16S data configuration
-│   ├── T2D_WGS/           # T2D WGS data configuration
+│   ├── CRC_16S/           # CRC 16S data
+│   ├── CRC_WGS/           # CRC WGS data
+│   ├── IBD_16S/           # IBD 16S data
+│   ├── T2D_WGS/           # T2D WGS data
 │   ├── dietary_fiber/     # Dietary fiber study
-│   └── synthetic_data/    # Synthetic data for validation
+│   ├── synthetic_data/    # Synthetic data for validation
+|   └── Multi_classification # multi-status data
 └── results/               # Analysis results and scripts
 ```
 
@@ -89,7 +90,7 @@ Each dataset directory contains:
 - `run_GCN_ablation.sh`: Ablation study script
 - `run_DeepPhylo.sh`: DeepPhylo comparison
 - `run_phylospec.sh`: PhyloSpec comparison
-- `PCA_32.txt`: PCA coordinates for visualization
+- `PCA_32.txt`: PCA coordinates for DeepPhylo model
 - Phylogenetic tree files (`.nwk`)
 
 ## Results

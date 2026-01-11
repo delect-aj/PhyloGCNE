@@ -78,6 +78,23 @@ results/*.jpeg
 results/*.gif
 results/__pycache__/
 results/.ipynb_checkpoints/
+results/*.pt
+results/*.pth
+
+# Exclude error and output logs
+*.err
+*.out
+
+# Exclude biom files
+*.biom
+
+# Exclude model files
+*.pt
+*.pth
+
+# Exclude QIIME2 files
+*.qza
+*.qzv
 
 # Exclude script directory checkpoints
 script/.ipynb_checkpoints/

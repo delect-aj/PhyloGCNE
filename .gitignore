@@ -64,11 +64,6 @@ data/*/output/*.pkl
 data/*/output/*.pth
 data/*/output/*.npy
 data/*/output/*.npz
-data/*/data/*.biom
-data/*/data/*.h5
-data/*/data/*.hdf5
-data/*/data/*.csv
-data/*/data/*.tsv
 
 # Exclude results directory large files
 results/*.pdf
@@ -85,16 +80,9 @@ results/*.pth
 *.err
 *.out
 
-# Exclude biom files
-*.biom
-
 # Exclude model files
 *.pt
 *.pth
-
-# Exclude QIIME2 files
-*.qza
-*.qzv
 
 # Exclude script directory checkpoints
 script/.ipynb_checkpoints/

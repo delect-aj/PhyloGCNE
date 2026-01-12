@@ -16,7 +16,7 @@ software_path=/home/dongbiao/software/Phylo-Spec
 for i in $(seq 1 5); do
 python ${software_path}/src/model/PhyloSpec_train_test.py \
     -t phylogeny_normalize.nwk -c data/train_${i}.csv --PhyloSpec train -bs 64 \
-    -taxo /beegfs/dongbiao/greengene2/exported-taxonomy/taxonomy.tsv -ep 100 -fold ${i} \
+    -taxo /beegfs/dongbiao/greengene2/exported-taxonomy/taxonomy.tsv -ep 50 -fold ${i} \
     -o output/
 
 python ${software_path}/src/model/PhyloSpec_train_test.py \

@@ -40,7 +40,6 @@ wheels/
 *.pkl
 *.pickle
 *.csv
-*.tsv
 *.xlsx
 *.xls
 *.pdf

@@ -15,15 +15,7 @@ GCN <- c()
 for (i in c(1:5)){
   df <- read.csv(paste0("../data/IBD_16S/results/predictions_", i, ".csv"))
   roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  Phylo_Spec <- c(Phylo_Spec, auc(roc_result))
   GCN <- c(GCN, auc(roc_result))
-}
-### GCN ablation distance
-GCN_distance <- c()
-for (i in c(1:5)){
-  df <- read.csv(paste0("../data/IBD_16S/ablation_distance/predictions_", i, ".csv"))
-  roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  GCN_distance <- c(GCN_distance, auc(roc_result))
 }
 ### GCN ablation phylo
 GCN_phylo <- c()
@@ -33,11 +25,9 @@ for (i in c(1:5)){
   GCN_phylo <- c(GCN_phylo, auc(roc_result))
 }
 
-plot_df <- data.frame(fold = fold, Full_tree = GCN, Topology_Only = GCN_distance, 
-                      Tips_only = GCN_phylo)
+plot_df <- data.frame(fold = fold, Full_tree = GCN, Flat_structure = GCN_phylo)
 plot_df <- plot_df %>% melt(id.vars = "fold")
-plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Topology_Only", "Tips_only"))
-plot_df <- plot_df %>% filter(variable != "Topology_Only")
+plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Flat_structure"))
 
 p1 <- ggplot(plot_df, aes(x = variable, y = value)) +
   geom_boxplot() +
@@ -57,15 +47,7 @@ GCN <- c()
 for (i in c(1:5)){
   df <- read.csv(paste0("../data/CRC_16S/results/predictions_", i, ".csv"))
   roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  Phylo_Spec <- c(Phylo_Spec, auc(roc_result))
   GCN <- c(GCN, auc(roc_result))
-}
-### GCN ablation distance
-GCN_distance <- c()
-for (i in c(1:5)){
-  df <- read.csv(paste0("../data/CRC_16S/ablation_distance/predictions_", i, ".csv"))
-  roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  GCN_distance <- c(GCN_distance, auc(roc_result))
 }
 ### GCN ablation phylo
 GCN_phylo <- c()
@@ -75,11 +57,10 @@ for (i in c(1:5)){
   GCN_phylo <- c(GCN_phylo, auc(roc_result))
 }
 
-plot_df <- data.frame(fold = fold, Full_tree = GCN, Topology_Only = GCN_distance, 
-                      Tips_only = GCN_phylo)
+plot_df <- data.frame(fold = fold, Full_tree = GCN, Flat_structure = GCN_phylo)
 plot_df <- plot_df %>% melt(id.vars = "fold")
-plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Topology_Only", "Tips_only"))
-plot_df <- plot_df %>% filter(variable != "Topology_Only")
+plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Flat_structure"))
+
 p2 <- ggplot(plot_df, aes(x = variable, y = value)) +
   geom_boxplot() +
   geom_line(aes(group=fold)) +
@@ -99,15 +80,7 @@ GCN <- c()
 for (i in c(1:5)){
   df <- read.csv(paste0("../data/dietary_fiber/results/predictions_", i, ".csv"))
   roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  Phylo_Spec <- c(Phylo_Spec, auc(roc_result))
   GCN <- c(GCN, auc(roc_result))
-}
-### GCN ablation distance
-GCN_distance <- c()
-for (i in c(1:5)){
-  df <- read.csv(paste0("../data/dietary_fiber/ablation_distance/predictions_", i, ".csv"))
-  roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  GCN_distance <- c(GCN_distance, auc(roc_result))
 }
 ### GCN ablation phylo
 GCN_phylo <- c()
@@ -117,11 +90,9 @@ for (i in c(1:5)){
   GCN_phylo <- c(GCN_phylo, auc(roc_result))
 }
 
-plot_df <- data.frame(fold = fold, Full_tree = GCN, Topology_Only = GCN_distance, 
-                      Tips_only = GCN_phylo)
+plot_df <- data.frame(fold = fold, Full_tree = GCN, Flat_structure = GCN_phylo)
 plot_df <- plot_df %>% melt(id.vars = "fold")
-plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Topology_Only", "Tips_only"))
-plot_df <- plot_df %>% filter(variable != "Topology_Only")
+plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Flat_structure"))
 
 p3 <- ggplot(plot_df, aes(x = variable, y = value)) +
   geom_boxplot() +
@@ -141,15 +112,7 @@ GCN <- c()
 for (i in c(1:5)){
   df <- read.csv(paste0("../data/CRC_WGS/results/predictions_", i, ".csv"))
   roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  Phylo_Spec <- c(Phylo_Spec, auc(roc_result))
   GCN <- c(GCN, auc(roc_result))
-}
-### GCN ablation distance
-GCN_distance <- c()
-for (i in c(1:5)){
-  df <- read.csv(paste0("../data/CRC_WGS/ablation_distance/predictions_", i, ".csv"))
-  roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  GCN_distance <- c(GCN_distance, auc(roc_result))
 }
 ### GCN ablation phylo
 GCN_phylo <- c()
@@ -159,11 +122,10 @@ for (i in c(1:5)){
   GCN_phylo <- c(GCN_phylo, auc(roc_result))
 }
 
-plot_df <- data.frame(fold = fold, Full_tree = GCN, Topology_Only = GCN_distance, 
-                      Tips_only = GCN_phylo)
+plot_df <- data.frame(fold = fold, Full_tree = GCN, Flat_structure = GCN_phylo)
 plot_df <- plot_df %>% melt(id.vars = "fold")
-plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Topology_Only", "Tips_only"))
-plot_df <- plot_df %>% filter(variable != "Topology_Only")
+plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Flat_structure"))
+
 p4 <- ggplot(plot_df, aes(x = variable, y = value)) +
   geom_boxplot() +
   geom_line(aes(group=fold)) +
@@ -182,15 +144,7 @@ GCN <- c()
 for (i in c(1:5)){
   df <- read.csv(paste0("../data/T2D_WGS/results/predictions_", i, ".csv"))
   roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  Phylo_Spec <- c(Phylo_Spec, auc(roc_result))
   GCN <- c(GCN, auc(roc_result))
-}
-### GCN ablation distance
-GCN_distance <- c()
-for (i in c(1:5)){
-  df <- read.csv(paste0("../data/T2D_WGS/ablation_distance/predictions_", i, ".csv"))
-  roc_result <- roc(df$True_Label, df$Prob_Class_1)
-  GCN_distance <- c(GCN_distance, auc(roc_result))
 }
 ### GCN ablation phylo
 GCN_phylo <- c()
@@ -200,11 +154,10 @@ for (i in c(1:5)){
   GCN_phylo <- c(GCN_phylo, auc(roc_result))
 }
 
-plot_df <- data.frame(fold = fold, Full_tree = GCN, Topology_Only = GCN_distance, 
-                      Tips_only = GCN_phylo)
+plot_df <- data.frame(fold = fold, Full_tree = GCN, Flat_structure = GCN_phylo)
 plot_df <- plot_df %>% melt(id.vars = "fold")
-plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Topology_Only", "Tips_only"))
-plot_df <- plot_df %>% filter(variable != "Topology_Only")
+plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Flat_structure"))
+
 p5 <- ggplot(plot_df, aes(x = variable, y = value)) +
   geom_boxplot() +
   geom_line(aes(group=fold)) +
@@ -231,18 +184,6 @@ for (j in c("ASD", "CRC", "HC", "IBD", "IBS")){
     roc_result <- roc(df$label, df$value)
     GCN <- c(GCN, auc(roc_result))
   }}
-### GCN ablation distance
-GCN_distance <- c()
-for (j in c("ASD", "CRC", "HC", "IBD", "IBS")){
-  for (i in c(1:5)){
-    df <- read.csv(paste0("../data/Multi_classification/ablation_distance/predictions_", i, ".csv"))
-    colnames(df) <- c("sample_id", "ASD", "CRC", "HC", "IBD", "IBS", "label")
-    df <- df %>% melt(id.vars = c("sample_id", "label")) %>% filter(variable == j)
-    df[, "label"] <- 0
-    df[metadata[df[, "sample_id"], "disease"] == j, "label"] <- 1
-    roc_result <- roc(df$label, df$value)
-    GCN_distance <- c(GCN_distance, auc(roc_result))
-  }}
 ### GCN ablation phylo
 GCN_phylo <- c()
 for (j in c("ASD", "CRC", "HC", "IBD", "IBS")){
@@ -256,12 +197,10 @@ for (j in c("ASD", "CRC", "HC", "IBD", "IBS")){
     GCN_phylo <- c(GCN_phylo, auc(roc_result))
   }}
 
-plot_df <- data.frame(fold = fold, Full_tree = GCN, Topology_Only = GCN_distance, 
-                      Tips_only = GCN_phylo)
+plot_df <- data.frame(fold = fold, Full_tree = GCN, Flat_structure = GCN_phylo)
 plot_df <- plot_df %>% melt(id.vars = "fold")
-plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Topology_Only", "Tips_only"))
-plot_df <- plot_df %>% group_by(fold, variable) %>% summarise(mean_value = mean(value))
-plot_df <- plot_df %>% filter(variable != "Topology_Only")
+plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Flat_structure"))
+
 p6 <- ggplot(plot_df, aes(x = variable, y = mean_value)) +
   geom_boxplot() +
   geom_line(aes(group=fold)) +

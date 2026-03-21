@@ -1,5 +1,11 @@
 #!/bin/python
 
+import sys, types
+_mock = types.ModuleType('torch_spline_conv')
+_mock.spline_basis = None
+_mock.spline_weighting = None
+sys.modules['torch_spline_conv'] = _mock
+
 import json
 import logging
 import shutil
@@ -18,7 +24,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from skbio import TreeNode
-
+from imblearn.over_sampling import SMOTE
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_auc_score
 
 import torch
@@ -79,7 +85,8 @@ class MicroGraphAblationDataset(Dataset):
                  biom_file_path: str, 
                  metadata_file_path: str,
                  phylogeny_file_path: str,
-                 label_column: str = 'group', transform=None):
+                 label_column: str = 'group', 
+                 transform=None):
                     
         super().__init__(transform=transform)
 
@@ -89,14 +96,41 @@ class MicroGraphAblationDataset(Dataset):
         df_metadata = pd.read_csv(metadata_file_path, index_col=0, sep='\t')
         # self.table = self.table.norm(axis='sample', inplace=False)
         self.table = self.table.to_dataframe().T
+
+        # ------------------------------
+        valid_samples = []
+        labels = []
+        for sid in self.table.index.values:
+            if sid in df_metadata.index:
+                valid_samples.append(sid)
+                labels.append(df_metadata.loc[sid, label_column])
+        self.table = self.table.loc[valid_samples]
         
-        data = {}
+        if len(np.unique(labels)) > 2:
+            smote = SMOTE(random_state=42)
+            X_resampled, y_resampled = smote.fit_resample(self.table.values, labels)
+            
+            new_sample_ids = []
+            for i in range(len(X_resampled)):
+                if i < len(valid_samples):
+                    new_sample_ids.append(valid_samples[i])
+                else:
+                    new_sample_ids.append(f"smote_sample_{i}")
+                    
+            self.table = pd.DataFrame(X_resampled, index=new_sample_ids, columns=self.table.columns)
+            labels_dict = dict(zip(new_sample_ids, y_resampled))
+            print(f"SMOTE applied. Data expanded from {len(valid_samples)} to {len(new_sample_ids)} samples.")
+        else:
+            labels_dict = dict(zip(valid_samples, labels))
+        # ------------------------------
+        
         self.all_nodes_in_tree = [node.name for node in full_tree.postorder()]
-        
         self.data_list = []
+        
         for sample_id in tqdm(self.table.index.values):
             sample_data = np.array(self.table.loc[sample_id])
-            label = df_metadata.loc[sample_id, label_column]
+            # label = df_metadata.loc[sample_id, label_column]
+            label = labels_dict[sample_id]
             
             data = self._build_graph_from_sample(self.fid, sample_data, label, sample_id, full_tree)
             self.data_list.append(data)
@@ -372,7 +406,7 @@ class GCNEClassifier(nn.Module):
         return x
   
 
-def train_epoch(model, loader, optimizer, device, logger, epoch_num, scheduler, args):
+def train_epoch(model, loader, optimizer, device, logger, epoch_num, scheduler, args, class_weights=None):
     model.train()
     losses_m = AverageMeter('Loss', ':.4e')
     
@@ -400,7 +434,7 @@ def train_epoch(model, loader, optimizer, device, logger, epoch_num, scheduler, 
         is_multiclass = logits.dim() > 1 and logits.size(1) > 1
         
         if is_multiclass:
-            criterion = nn.CrossEntropyLoss()
+            criterion = nn.CrossEntropyLoss(weight=class_weights)
             loss = criterion(logits, y.long())
             
             probs = torch.softmax(logits, dim=1) 
@@ -454,7 +488,7 @@ def train_epoch(model, loader, optimizer, device, logger, epoch_num, scheduler, 
     return metrics, all_train_sample_ids
 
 
-def evaluate_epoch(model, loader, device, logger, epoch_num_str="Eval"):
+def evaluate_epoch(model, loader, device, logger, epoch_num_str="Eval", class_weights=None):
     model.eval()
     losses_m = AverageMeter('Loss', ':.4e')
     
@@ -472,7 +506,7 @@ def evaluate_epoch(model, loader, device, logger, epoch_num_str="Eval"):
             is_multiclass = logits.dim() > 1 and logits.size(1) > 1
 
             if is_multiclass:
-                criterion = nn.CrossEntropyLoss()
+                criterion = nn.CrossEntropyLoss(weight=class_weights)
                 loss = criterion(logits, y.long()) 
                 
                 probs = torch.softmax(logits, dim=1) # (N, C)
@@ -537,7 +571,6 @@ def evaluate_epoch(model, loader, device, logger, epoch_num_str="Eval"):
         all_sample_ids = None
     
     return metrics, all_labels, all_probs, all_sample_ids
-
 
 
 def calculate_node_importance_beta(model, loader, device, all_nodes_names, num_classes, output_dir, fold, 
@@ -702,9 +735,9 @@ def main():
     parser.add_argument("--test_table", type=str, help="Data directory containing test data.")
     parser.add_argument("--metadata_filename", type=str, help="Metadata filename.")
     parser.add_argument("--phylogeny_file_path", type=str, help="Path to the phylogeny tree file.")
-    parser.add_argument("--fold", type=str, help="Current test study/fold name for LODO evaluation.")
+    parser.add_argument("--fold", type=str, default='PRJDB11845', help="Current test study/fold name for LODO evaluation.")
     parser.add_argument("--output_dir", type=str, default="./graph_model_crc_workdir/v19", help="Root output directory.")
-    parser.add_argument("--feature_importance", type=bool, default=False, help="")
+    parser.add_argument("--feature_importance", type=lambda x: (str(x).lower() == 'true'), default=False, help="True 或 False")
 
     # Data Arguments
     parser.add_argument("--label_column", type=str, default="group", help="Name of the label column in the metadata file.")
@@ -713,12 +746,12 @@ def main():
     parser.add_argument("--hidden_channels", type=int, default=100, help="Number of hidden units in GCN layers.")
     parser.add_argument("--heads", type=int, default=1, help="Number of attention heads in the GATConv layer.")
     parser.add_argument("--dropout_rate", type=float, default=0.0, help="Dropout rate used in the classifier head.")
-    parser.add_argument("--num_layers", type=int, default=5, help="Total number of GCN layers in the model.")
-    parser.add_argument("--act", type=str, default='relu', help="Activation function used in FFN layers.")
-    parser.add_argument("--ffn", type=bool, default=True, help="Enable Feed-Forward Network (FFN) blocks in GCN layers.")
-    parser.add_argument("--residual", type=bool, default=True, help="Enable residual connections in GCN layers.")
-    parser.add_argument("--norm_type", type=str, default='batch_norm', help="Type of normalization to use in GCN layers.")
-    parser.add_argument("--readout", type=str, default='mean', help="Readout operation to use in GCN layers.")
+    parser.add_argument("--num_layers", type=int, default=5, help="模型中 GCN 层的总数。")
+    parser.add_argument("--act", type=str, default='relu', help="ffn 层中使用的激活函数。")
+    parser.add_argument("--ffn", type=bool, default=True, help="在GCN层中启用前馈网络(FFN)块。")
+    parser.add_argument("--residual", type=bool, default=True, help="在GCN层中启用残差连接。")
+    parser.add_argument("--norm_type", type=str, default='batch_norm', help="在GCN层中启用何种归一化。")
+    parser.add_argument("--readout", type=str, default='mean', help="在GCN层中启用何种读出操作。")
 
     # Training Hyperparameters
     parser.add_argument("--epochs", type=int, default=100)
@@ -772,7 +805,7 @@ def main():
     logger.info("Loading datasets...")
 
     train_dataset = MicroGraphAblationDataset(biom_file_path=args.train_table, metadata_file_path=args.metadata_filename,
-        phylogeny_file_path=args.phylogeny_file_path, label_column=args.label_column
+        phylogeny_file_path=args.phylogeny_file_path, label_column=args.label_column,
     )
 
     test_dataset = MicroGraphAblationDataset(biom_file_path=args.test_table, metadata_file_path=args.metadata_filename,
@@ -781,7 +814,30 @@ def main():
     
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=args.workers)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+    
+    
     logger.info(f"Datasets loaded. Train samples: {len(train_dataset)}, Test samples: {len(test_dataset)}")
+
+    class_weights_tensor = None
+    # if num_classes > 2:
+    #     logger.info("Calculating class weights to handle imbalance...")
+
+    #     df_meta_weight = pd.read_csv(args.metadata_filename, sep='\t', index_col=0)
+    #     train_sample_ids = train_dataset.table.index.values
+    #     train_labels = df_meta_weight.loc[train_sample_ids, args.label_column].values
+
+    #     from collections import Counter
+    #     label_counts = Counter(train_labels)
+    #     total_samples = len(train_labels)
+
+    #     weights = []
+    #     for i in range(num_classes):
+
+    #         count = label_counts.get(i, 1) 
+    #         w = total_samples / (num_classes * count)
+    #         weights.append(w)
+            
+    #     class_weights_tensor = torch.tensor(weights, dtype=torch.float32).to(device)
 
     # Initialize model
     num_nodes = train_dataset()
@@ -804,6 +860,7 @@ def main():
             ).to(device)
     logger.info(f"Model initialized. Trainable parameters: {sum(p.numel() for p in model.parameters() if p.requires_grad):,}")
     best_model_path = os.path.join(args.output_dir, f"{args.fold}_test_model.pt")
+
     if args.feature_importance == False:
         # Optimizer, and Scheduler
         optimizer = optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)
@@ -830,8 +887,8 @@ def main():
         }
         
         for epoch in range(1, args.epochs + 1):
-            train_metrics, _ = train_epoch(model, train_loader, optimizer, device, logger, epoch, scheduler, args)
-            test_metrics, _, _, _ = evaluate_epoch(model, test_loader, device, logger, f"Test Ep {epoch}")
+            train_metrics, _ = train_epoch(model, train_loader, optimizer, device, logger, epoch, scheduler, args, class_weights_tensor)
+            test_metrics, _, _, _ = evaluate_epoch(model, test_loader, device, logger, f"Test Ep {epoch}", class_weights_tensor)
     
             history['train_loss'].append(train_metrics['loss'])
             history['train_auc'].append(train_metrics['auc'])
@@ -857,9 +914,9 @@ def main():
     
         # Re-run evaluation on test set using the best model
         metrics_final, all_labels_final, all_probs_final, all_sample_ids_final = evaluate_epoch(
-            model, test_loader, device, logger, epoch_num_str="FinalEval"
+            model, test_loader, device, logger, epoch_num_str="FinalEval", class_weights=class_weights_tensor
         )
-    
+        
         # Prepare DataFrame for saving
         prediction_file_path = os.path.join(args.output_dir, f"predictions_{args.fold}.csv")
         

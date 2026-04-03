@@ -13,16 +13,13 @@ source activate jupyter_notebook
 # Path to DeepPhylo installation (https://github.com/liuchuwei/DeepPhylo)
 SOFTWARE_PATH=/path/to/DeepPhylo
 
-# Data directory (relative to this script)
-DATA_DIR=$(dirname "$0")
-
 for i in $(seq 1 5); do
     python ${SOFTWARE_PATH}/deepphylo_classification.py \
-        --train_table ${DATA_DIR}/data/train_${i}.biom \
-        --test_table ${DATA_DIR}/data/test_${i}.biom \
-        --metadata_filename ${DATA_DIR}/metadata.txt \
-        --pca_file_path ${DATA_DIR}/PCA_32.txt \
-        --output_dir ${DATA_DIR}/results \
+        --train_table data/train_${i}.biom \
+        --test_table data/test_${i}.biom \
+        --metadata_filename metadata.txt \
+        --pca_file_path PCA_32.txt \
+        --output_dir results \
         --fold ${i} \
         --epochs 100 -hs 80 -kec 3 -l 0.0001 -bs 64 -kep 7 -act relu --hidden_size 30
 done

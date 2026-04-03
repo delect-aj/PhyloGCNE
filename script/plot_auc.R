@@ -8,10 +8,13 @@ library(vegan)
 library(ggpubr) 
 library(Hmisc)
 library(patchwork)
+
 setwd("/home/dongbiao/GCN/results")
+
 fold <- c("fold_1", "fold_2", "fold_3", "fold_4", "fold_5")
+
 ## synthetic data
-metadata <- read.delim("/home/dongbiao/software/Phylo-Spec/data/Synthetic_Dataset_1/metadata.txt", check.names = FALSE, stringsAsFactors = FALSE)
+metadata <- read.delim("../data/synthetic_data/metadata.txt", check.names = FALSE, stringsAsFactors = FALSE)
 rownames(metadata) <- metadata$sample_id
 # metadata$group <- as.factor(metadata$group) 
 metadata[metadata$group == 0, "group"] <- c("Group S1 + S3")
@@ -20,7 +23,7 @@ n <- 1
 p <- list()
 groups <- c("Bray_Curtis", "Weighted_Unifrac")
 for (method in c("bray_curtis", "weighted_unifrac")){
-  dist <- read_qza(paste0("/home/dongbiao/software/Phylo-Spec/data/Synthetic_Dataset_1/beta/", method, "_distance_matrix.qza"))$data
+  dist <- read_qza(paste0("../data/synthetic_data/beta/", method, "_distance_matrix.qza"))$data
   dist <- as.dist(dist)
   adonis_result <- adonis2(dist ~ group, data = metadata, permutations = 999)
   R2_val <- round(adonis_result$R2[1], 3)
@@ -109,7 +112,7 @@ ggsave(p, filename = "synthetic_results.pdf",width = 6, height = 7, useDingbats=
 my_comparisons <- list( c("PhyloGCNE", "Phylo_Spec"), 
                         c("PhyloGCNE", "DeepPhylo"), 
                         c("PhyloGCNE", "RF"))
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_16S_IBD//metadata.tsv", 
+metadata <- read.csv("../data/IBD_16S/metadata.tsv", 
                      sep = "\t", row.names = 1)
 ### RF
 df <- read.csv("../data/IBD_16S/results/RF_results.csv")
@@ -148,15 +151,6 @@ plot_df <- data.frame(fold = fold, RF = RF, DeepPhylo = DeepPhylo,
 plot_df <- plot_df %>% melt(id.vars = "fold")
 plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
 
-# p1 <- ggplot(plot_df, aes(x = variable, y = value)) +
-#   geom_boxplot() +
-#   geom_line(aes(group=fold)) +
-#   geom_point(size = 3) + 
-#   labs(x = "", y = "AUC", title = "IBD 16S") +
-#   theme_bw() +
-#   theme(axis.text = element_text(size = 12),
-#         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
-
 p1 <- ggplot(plot_df, aes(x = variable, y = value)) +
   geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
   geom_point(size = 3, alpha = 0.7) + 
@@ -176,7 +170,7 @@ p1 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ## CRC 16S
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_16S_CRC/metadata.tsv", 
+metadata <- read.csv("../data/CRC_16S/metadata.tsv", 
                      sep = "\t", row.names = 1)
 ### RF
 df <- read.csv("../data/CRC_16S/results/RF_results.csv")
@@ -234,7 +228,7 @@ p2 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ### Dietary fiber 16S
-metadata <- read.csv("/home/dongbiao/GCN/data/dietary_fiber/metadata.tsv", sep = "\t", row.names = 1)
+metadata <- read.csv("../data/dietary_fiber/results/metadata.tsv", sep = "\t", row.names = 1)
 ### RF
 df <- read.csv("../data/dietary_fiber/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"]
@@ -407,7 +401,7 @@ p5 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ### CRC WGS
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_WGS_CRC/metadata.tsv", 
+metadata <- read.csv("../data/CRC_WGS/metadata.tsv", 
                      sep = "\t", row.names = 1)
 ### RF
 df <- read.csv("../data/CRC_WGS/results/RF_results.csv")
@@ -465,8 +459,8 @@ p6 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ## T2D WGS
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_WGS_T2D/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/T2D_WGS/metadata.tsv", sep = "\t", row.names = 1)
+
 ### RF
 df <- read.csv("../data/T2D_WGS/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"]
@@ -523,7 +517,7 @@ p7 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ## Multi-classification
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_Multi-classification/metadata.tsv", 
+metadata <- read.csv("../data/Multi_classification/metadata.tsv", 
                      sep = "\t", row.names = 1)
 metadata_unique <- metadata[!duplicated(metadata$disease), ]
 ### RF
@@ -609,8 +603,8 @@ ggsave(p, filename = "Benchmark_auc.png",width = 12, height = 7)
 ggsave(p, filename = "Benchmark_auc.pdf",width = 12, height = 7)
 
 ### Leave one study out CRC 16S
-metadata <- read.csv("../data/CRC_16S/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/CRC_16S/metadata.tsv", sep = "\t", row.names = 1)
+
 ### RF
 df <- read.csv("../data/CRC_16S/results/RF_results_loso.csv")
 df[, "label"] <- metadata[df[, 1], "group"]
@@ -666,5 +660,6 @@ p <- ggplot(plot_df, aes(x = variable, y = value, color=study)) +
   theme(axis.text = element_text(size = 12),
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 ggsave(p, filename = "Leave_one_study_auc.pdf",width = 4.5, height = 3.5, useDingbats=FALSE)
+ggsave(p, filename = "Leave_one_study_auc.png",width = 4.5, height = 3.5, useDingbats=FALSE)
 
 

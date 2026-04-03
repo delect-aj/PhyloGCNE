@@ -87,6 +87,59 @@ p3 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   theme_bw() +
   theme(axis.text = element_text(size = 12))
 
+### OSCC 16S
+metadata <- read.csv("/home/dongbiao/GCN/data/OSCC_16S/metadata.tsv", 
+                     sep = "\t", row.names = 1)
+df <- read.csv("../data/OSCC_16S/results/RF_results.csv")
+df[, "label"] <- metadata[df[, 1], "group"] 
+RF <- c()
+for (i in unique(df$fold)){
+  temp <- df %>% filter(fold == i)
+  roc_result <- roc(temp$label, temp$pred_prob)
+  RF <- c(RF, auc(roc_result))
+}
+mean_RF <- mean(RF)
+plot_df <- read.csv("/home/dongbiao/GCN/data/OSCC_16S/results/RF_results_biomark.csv")
+plot_df <- plot_df %>% mutate(group_1 = case_when(
+  group_1 == "without_low" ~ "bottom-k exclusion",
+  group_1 == "without_high" ~ "top-k exclusion",
+  TRUE ~ group_1 
+))
+p4 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
+  geom_line() +
+  geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
+  geom_point(size = 3) + 
+  labs(x = "Percentile", y = "AUC", title = "OSCC_16S", color = "") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12))
+
+
+### GC 16S
+metadata <- read.csv("/home/dongbiao/GCN/data/Gastritis_16S/metadata.tsv", 
+                     sep = "\t", row.names = 1)
+df <- read.csv("../data/Gastritis_16S/results/RF_results.csv")
+df[, "label"] <- metadata[df[, 1], "group"] 
+RF <- c()
+for (i in unique(df$fold)){
+  temp <- df %>% filter(fold == i)
+  roc_result <- roc(temp$label, temp$pred_prob)
+  RF <- c(RF, auc(roc_result))
+}
+mean_RF <- mean(RF)
+plot_df <- read.csv("/home/dongbiao/GCN/data/Gastritis_16S/results/RF_results_biomark.csv")
+plot_df <- plot_df %>% mutate(group_1 = case_when(
+  group_1 == "without_low" ~ "bottom-k exclusion",
+  group_1 == "without_high" ~ "top-k exclusion",
+  TRUE ~ group_1 
+))
+p5 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
+  geom_line() +
+  geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
+  geom_point(size = 3) + 
+  labs(x = "Percentile", y = "AUC", title = "GC_16S", color = "") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12))
+
 
 ### CRC WGS
 metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_WGS_CRC/metadata.tsv", 
@@ -106,7 +159,7 @@ plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_high" ~ "top-k exclusion",
   TRUE ~ group_1 
 ))
-p4 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
+p6 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
   geom_point(size = 3) + 
@@ -132,7 +185,7 @@ plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_high" ~ "top-k exclusion",
   TRUE ~ group_1 
 ))
-p5 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
+p7 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
   geom_point(size = 3) + 
@@ -164,7 +217,7 @@ plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_high" ~ "top-k exclusion",
   TRUE ~ group_1 
 ))
-p6 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
+p8 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
   geom_point(size = 3) + 
@@ -172,9 +225,10 @@ p6 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   theme_bw() +
   theme(axis.text = element_text(size = 12))
 
-p <- (p1 + p2 + p3 + p4 + p5 + p6) + 
-  plot_layout(guides = 'collect') & 
+p <- (p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8) + 
+  plot_layout(ncol = 4, guides = 'collect') & 
   theme(legend.position = 'bottom') 
-p <- p + plot_annotation(tag_levels = list(c('a', 'b', 'c', 'd', 'e', 'f')))
-ggsave(p, filename = "Biomarker_auc.pdf", width = 10, height = 7, useDingbats=FALSE)
+p <- p + plot_annotation(tag_levels = list(c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'))) +
+  theme(plot.tag = element_text(face = "bold"))
+ggsave(p, filename = "Biomarker_auc.png", width = 12, height = 7)
 

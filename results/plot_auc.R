@@ -3,8 +3,11 @@ library(reshape2)
 library(pROC)
 library(reshape2)
 library(cowplot)
+library(qiime2R)
 library(vegan)
-
+library(ggpubr) 
+library(Hmisc)
+library(patchwork)
 setwd("/home/dongbiao/GCN/results")
 fold <- c("fold_1", "fold_2", "fold_3", "fold_4", "fold_5")
 ## synthetic data
@@ -15,6 +18,7 @@ metadata[metadata$group == 0, "group"] <- c("Group S1 + S3")
 metadata[metadata$group == 1, "group"] <- "Group S2 + S4"
 n <- 1
 p <- list()
+groups <- c("Bray_Curtis", "Weighted_Unifrac")
 for (method in c("bray_curtis", "weighted_unifrac")){
   dist <- read_qza(paste0("/home/dongbiao/software/Phylo-Spec/data/Synthetic_Dataset_1/beta/", method, "_distance_matrix.qza"))$data
   dist <- as.dist(dist)
@@ -36,7 +40,7 @@ for (method in c("bray_curtis", "weighted_unifrac")){
   p[[n]] <- ggplot(plot_data, aes(x = PC1, y = PC2, color = group, fill = group)) +
     geom_point(size = 3, alpha = 0.5) + 
     stat_ellipse(geom = "polygon", alpha = 0.2, level = 0.97, show.legend = FALSE) +
-    labs(x = PC1_label, y = PC2_label, title = method, color = NULL, fill = NULL) +
+    labs(x = PC1_label, y = PC2_label, title = groups[n], color = NULL, fill = NULL) +
     annotate("text", 
              x = max(plot_data$PC1), 
              y = max(plot_data$PC2),
@@ -98,10 +102,13 @@ p <- ggplot(plot_df, aes(x = variable, y = value)) +
   theme_bw() +
   theme(axis.text = element_text(size = 12))
 p <- plot_grid(combined, p, align="hv", labels = c("a", "b"),
-               nrow = 2, ncol=1, plot=FALSE)
+               nrow = 2, ncol=1, plot=FALSE, axis="lb")
 ggsave(p, filename = "synthetic_results.pdf",width = 6, height = 7, useDingbats=FALSE)
 
 ## IBD 16S
+my_comparisons <- list( c("PhyloGCNE", "Phylo_Spec"), 
+                        c("PhyloGCNE", "DeepPhylo"), 
+                        c("PhyloGCNE", "RF"))
 metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_16S_IBD//metadata.tsv", 
                      sep = "\t", row.names = 1)
 ### RF
@@ -141,11 +148,29 @@ plot_df <- data.frame(fold = fold, RF = RF, DeepPhylo = DeepPhylo,
 plot_df <- plot_df %>% melt(id.vars = "fold")
 plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
 
+# p1 <- ggplot(plot_df, aes(x = variable, y = value)) +
+#   geom_boxplot() +
+#   geom_line(aes(group=fold)) +
+#   geom_point(size = 3) + 
+#   labs(x = "", y = "AUC", title = "IBD 16S") +
+#   theme_bw() +
+#   theme(axis.text = element_text(size = 12),
+#         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
+
 p1 <- ggplot(plot_df, aes(x = variable, y = value)) +
-  geom_boxplot() +
-  geom_line(aes(group=fold)) +
-  geom_point(size = 3) + 
-  labs(x = "", y = "AUC", title = "IBD 16S") +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=fold), color = "gray50", alpha = 0.6) +
+  stat_compare_means(comparisons = my_comparisons, 
+                     method = "t.test", 
+                     paired = TRUE, 
+                     vjust = 1.5,
+                     p.adjust.method = "BH",
+                     label = "p.signif") +
+  labs(x = "", y = "AUC", title = "IBD_16S") +
   theme_bw() +
   theme(axis.text = element_text(size = 12),
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
@@ -191,10 +216,19 @@ plot_df <- plot_df %>% melt(id.vars = "fold")
 plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
 
 p2 <- ggplot(plot_df, aes(x = variable, y = value)) +
-  geom_boxplot() +
-  geom_line(aes(group=fold)) +
-  geom_point(size = 3) + 
-  labs(x = "", y = "AUC", title = "CRC 16S") +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=fold), color = "gray50", alpha = 0.6) +
+  stat_compare_means(comparisons = my_comparisons, 
+                     method = "t.test", 
+                     paired = TRUE,  
+                     vjust = 1.5,
+                     p.adjust.method = "BH",
+                     label = "p.signif") +
+  labs(x = "", y = "AUC", title = "CRC_16S") +
   theme_bw() +
   theme(axis.text = element_text(size = 12),
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
@@ -239,10 +273,135 @@ plot_df <- plot_df %>% melt(id.vars = "fold")
 plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
 
 p3 <- ggplot(plot_df, aes(x = variable, y = value)) +
-  geom_boxplot() +
-  geom_line(aes(group=fold)) +
-  geom_point(size = 3) + 
-  labs(x = "", y = "AUC", title = "Fiber 16S") +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=fold), color = "gray50", alpha = 0.6) +
+  stat_compare_means(comparisons = my_comparisons, 
+                     method = "t.test", 
+                     paired = TRUE,  
+                     vjust = 1.5,
+                     p.adjust.method = "BH",
+                     label = "p.signif") +
+  labs(x = "", y = "AUC", title = "Fiber_16S") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
+
+## OSCC 16S
+metadata <- read.csv("../data/OSCC_16S/metadata.tsv", 
+                     sep = "\t", row.names = 1)
+### RF
+df <- read.csv("../data/OSCC_16S/results/RF_results.csv")
+df[, "label"] <- metadata[df[, 1], "group"]
+RF <- c()
+for (i in unique(df$fold)){
+  temp <- df %>% filter(fold == i)
+  roc_result <- roc(temp$label, temp$pred_prob)
+  RF <- c(RF, auc(roc_result))
+}
+### DeepPhylo
+DeepPhylo <- c()
+for (i in c(1:5)){
+  df <- read.csv(paste0("../data/OSCC_16S/results/predictions_deepphylo_", i, ".csv"))
+  df[, "label"] <- metadata[df[, 1], "group"]
+  roc_result <- roc(df$label, df$Prob_1)
+  DeepPhylo <- c(DeepPhylo, auc(roc_result))
+}
+### Phylo_spec
+Phylo_Spec <- c()
+for (i in c(1:5)){
+  df <- read.csv(paste0("../data/OSCC_16S/output/predictions_", i, ".csv"))
+  df[, "label"] <- metadata[df[, 1], "group"]
+  roc_result <- roc(df$label, df$Prob_Class_1)
+  Phylo_Spec <- c(Phylo_Spec, auc(roc_result))
+}
+### GCN
+GCN <- c()
+for (i in c(1:5)){
+  df <- read.csv(paste0("../data/OSCC_16S/results/predictions_", i, ".csv"))
+  roc_result <- roc(df$True_Label, df$Prob_Class_1)
+  GCN <- c(GCN, auc(roc_result))
+}
+plot_df <- data.frame(fold = fold, RF = RF, DeepPhylo = DeepPhylo, 
+                      Phylo_Spec = Phylo_Spec, PhyloGCNE = GCN)
+plot_df <- plot_df %>% melt(id.vars = "fold")
+plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
+
+p4 <- ggplot(plot_df, aes(x = variable, y = value)) +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=fold), color = "gray50", alpha = 0.6) +
+  stat_compare_means(comparisons = my_comparisons, 
+                     method = "t.test", 
+                     paired = TRUE,  
+                     p.adjust.method = "BH",
+                     vjust = 1.5,
+                     label = "p.signif") +
+  labs(x = "", y = "AUC", title = "OSCC_16S") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
+
+## Gastritis 16S
+metadata <- read.csv("../data/Gastritis_16S/metadata.tsv", 
+                     sep = "\t", row.names = 1)
+### RF
+df <- read.csv("../data/Gastritis_16S/results/RF_results.csv")
+df[, "label"] <- metadata[df[, 1], "group"]
+RF <- c()
+for (i in unique(df$fold)){
+  temp <- df %>% filter(fold == i)
+  roc_result <- roc(temp$label, temp$pred_prob)
+  RF <- c(RF, auc(roc_result))
+}
+### DeepPhylo
+DeepPhylo <- c()
+for (i in c(1:5)){
+  df <- read.csv(paste0("../data/Gastritis_16S/results/predictions_deepphylo_", i, ".csv"))
+  df[, "label"] <- metadata[df[, 1], "group"]
+  roc_result <- roc(df$label, df$Prob_1)
+  DeepPhylo <- c(DeepPhylo, auc(roc_result))
+}
+### Phylo_spec
+Phylo_Spec <- c()
+for (i in c(1:5)){
+  df <- read.csv(paste0("../data/Gastritis_16S/output/predictions_", i, ".csv"))
+  df[, "label"] <- metadata[df[, 1], "group"]
+  roc_result <- roc(df$label, df$Prob_Class_1)
+  Phylo_Spec <- c(Phylo_Spec, auc(roc_result))
+}
+### GCN
+GCN <- c()
+for (i in c(1:5)){
+  df <- read.csv(paste0("../data/Gastritis_16S/results/predictions_", i, ".csv"))
+  roc_result <- roc(df$True_Label, df$Prob_Class_1)
+  GCN <- c(GCN, auc(roc_result))
+}
+plot_df <- data.frame(fold = fold, RF = RF, DeepPhylo = DeepPhylo, 
+                      Phylo_Spec = Phylo_Spec, PhyloGCNE = GCN)
+plot_df <- plot_df %>% melt(id.vars = "fold")
+plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
+
+p5 <- ggplot(plot_df, aes(x = variable, y = value)) +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=fold), color = "gray50", alpha = 0.6) +
+  stat_compare_means(comparisons = my_comparisons, 
+                     method = "t.test", 
+                     paired = TRUE,  
+                     vjust = 1.5,
+                     p.adjust.method = "BH",
+                     label = "p.signif") +
+  labs(x = "", y = "AUC", title = "GC_16S") +
   theme_bw() +
   theme(axis.text = element_text(size = 12),
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
@@ -287,11 +446,20 @@ plot_df <- data.frame(fold = fold, RF = RF, DeepPhylo = DeepPhylo,
 plot_df <- plot_df %>% melt(id.vars = "fold")
 plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
 
-p4 <- ggplot(plot_df, aes(x = variable, y = value)) +
-  geom_boxplot() +
-  geom_line(aes(group=fold)) +
-  geom_point(size = 3) + 
-  labs(x = "", y = "AUC", title = "CRC WGS") +
+p6 <- ggplot(plot_df, aes(x = variable, y = value)) +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=fold), color = "gray50", alpha = 0.6) +
+  stat_compare_means(comparisons = my_comparisons, 
+                     method = "t.test", 
+                     paired = TRUE,  
+                     vjust = 1.5,
+                     p.adjust.method = "BH",
+                     label = "p.signif") +
+  labs(x = "", y = "AUC", title = "CRC_WGS") +
   theme_bw() +
   theme(axis.text = element_text(size = 12),
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
@@ -336,11 +504,20 @@ plot_df <- data.frame(fold = fold, RF = RF, DeepPhylo = DeepPhylo,
 plot_df <- plot_df %>% melt(id.vars = "fold")
 plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
 
-p5 <- ggplot(plot_df, aes(x = variable, y = value)) +
-  geom_boxplot() +
-  geom_line(aes(group=fold)) +
-  geom_point(size = 3) + 
-  labs(x = "", y = "AUC", title = "T2D WGS") +
+p7 <- ggplot(plot_df, aes(x = variable, y = value)) +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=fold), color = "gray50", alpha = 0.6) +
+  stat_compare_means(comparisons = my_comparisons, 
+                     method = "t.test", 
+                     paired = TRUE,  
+                     p.adjust.method = "BH",
+                     vjust = 1.5,
+                     label = "p.signif") +
+  labs(x = "", y = "AUC", title = "T2D_WGS") +
   theme_bw() +
   theme(axis.text = element_text(size = 12),
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
@@ -408,16 +585,86 @@ plot_df <- data.frame(fold = fold, RF = RF, DeepPhylo = DeepPhylo,
 plot_df <- plot_df %>% melt(id.vars = "fold")
 plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
 plot_df <- plot_df %>% group_by(fold, variable) %>% summarise(mean_value = mean(value))
-p6 <- ggplot(plot_df, aes(x = variable, y = mean_value)) +
-  geom_boxplot() +
-  geom_line(aes(group=fold))+
-  geom_point(size = 3) + 
+p8 <- ggplot(plot_df, aes(x = variable, y = mean_value)) +
+  geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=fold), color = "gray50", alpha = 0.6) +
+  stat_compare_means(comparisons = my_comparisons, 
+                     method = "t.test", 
+                     paired = TRUE,  
+                     vjust = 1.5,
+                     p.adjust.method = "BH",
+                     label = "p.signif") +
   labs(x = "", y = "AUC", title = "Multiclass") +
   theme_bw() +
   theme(axis.text = element_text(size = 12),
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
-p <- plot_grid(p1, p2, p3, p4, p5, p6, align="hv", labels = c("a", "b", "c", "d", "e", "f"),
-               nrow = 2, ncol=3, plot=FALSE)
-ggsave(p, filename = "Benchmark_auc.pdf",width = 10, height = 7, useDingbats=FALSE)
+p <- plot_grid(p1, p2, p3, p4, p5, p6, p7, p8, align="hv", labels = c("a", "b", "c", "d", "e", "f", "g", "h"),
+               nrow = 2, ncol=4, plot=FALSE)
+ggsave(p, filename = "Benchmark_auc.png",width = 12, height = 7)
+ggsave(p, filename = "Benchmark_auc.pdf",width = 12, height = 7)
+
+### Leave one study out CRC 16S
+metadata <- read.csv("../data/CRC_16S/metadata.tsv", 
+                     sep = "\t", row.names = 1)
+### RF
+df <- read.csv("../data/CRC_16S/results/RF_results_loso.csv")
+df[, "label"] <- metadata[df[, 1], "group"]
+RF <- c()
+for (i in unique(df$fold)){
+  temp <- df %>% filter(fold == i)
+  roc_result <- roc(temp$label, temp$pred_prob)
+  RF <- c(RF, auc(roc_result))
+}
+### DeepPhylo
+DeepPhylo <- c()
+for (i in c(1:6)){
+  df <- read.csv(paste0("../data/CRC_16S/results_loso/predictions_deepphylo_", i, ".csv"))
+  df[, "label"] <- metadata[df[, 1], "group"]
+  roc_result <- roc(df$label, df$Prob_1)
+  DeepPhylo <- c(DeepPhylo, auc(roc_result))
+}
+### Phylo_spec
+Phylo_Spec <- c()
+for (i in c(1:6)){
+  df <- read.csv(paste0("../data/CRC_16S/output_loso/predictions_", i, ".csv"))
+  df[, "label"] <- metadata[df[, 1], "group"]
+  roc_result <- roc(df$label, df$Prob_Class_1)
+  Phylo_Spec <- c(Phylo_Spec, auc(roc_result))
+}
+### GCN
+GCN <- c()
+for (i in c(1:6)){
+  df <- read.csv(paste0("../data/CRC_16S/results_loso/predictions_", i, ".csv"))
+  roc_result <- roc(df$True_Label, df$Prob_Class_1)
+  GCN <- c(GCN, auc(roc_result))
+}
+
+study <- c('PRJNA911189', 'PRJEB6070', 'PRJNA280026', 'PRJNA318004',
+           'PRJNA325650', 'PRJNA290926')
+plot_df <- data.frame(study = study, RF = RF, DeepPhylo = DeepPhylo, 
+                      Phylo_Spec = Phylo_Spec, PhyloGCNE = GCN)
+plot_df <- plot_df %>% melt(id.vars = "study")
+plot_df$variable <- factor(plot_df$variable, levels = c("PhyloGCNE", "Phylo_Spec", "DeepPhylo", "RF"))
+my_comparisons <- list( c("PhyloGCNE", "Phylo_Spec"), 
+                        c("PhyloGCNE", "DeepPhylo"), 
+                        c("PhyloGCNE", "RF"))
+p <- ggplot(plot_df, aes(x = variable, y = value, color=study)) +
+  # geom_boxplot(alpha = 0.6, outlier.shape = NA) + 
+  geom_point(size = 3, alpha = 0.7) + 
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", 
+               width = 0.2, color = "darkred", size = 0.8) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "darkred") +
+  geom_line(aes(group=study), alpha = 0.8) +
+  scale_color_brewer(palette = "Paired") +
+  labs(x = "", y = "AUC", title = "CRC_16S") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 12),
+        axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
+ggsave(p, filename = "Leave_one_study_auc.pdf",width = 4.5, height = 3.5, useDingbats=FALSE)
+
 

@@ -1,0 +1,806 @@
+sample-id	BioProject	Condition	Country	Diagnosis	Region	Sample_location	Sample_type	Sequencing_method	Tissue
+ERR1995049	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1995038	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1995068	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995063	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995071	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994996	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994997	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995023	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994992	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995037	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1994989	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994998	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995010	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995069	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994990	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995030	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995045	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1995009	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995012	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995017	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995039	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1994991	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995067	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995031	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995047	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1994999	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995020	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995029	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995072	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995000	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995018	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995001	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995066	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995013	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995016	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995050	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1995041	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1995065	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995062	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995064	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995070	PRJEB21104	autoimmune atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995004	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994993	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995008	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994995	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995002	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995006	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995005	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995026	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994994	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1994988	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995003	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995007	PRJEB21104	H.pylori gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995015	PRJEB21104	H.pylori atrophic gastritis	United Kingdom	gastritis		Body	gastric mucosa	Illumina MiSeq	
+ERR1995048	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR1995051	PRJEB21104	gastric cancer	United Kingdom	gastric cancer		Body	gastric mucosa	Illumina MiSeq	
+ERR2014753	PRJEB21497	gastric ulcers	Malaysia	gastritis	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014756	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014746	PRJEB21497	gastric ulcers	Malaysia	gastritis	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014752	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014758	PRJEB21497	gastric ulcers	Malaysia	gastritis	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014754	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014755	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014747	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014757	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014745	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014751	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014759	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014748	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014744	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014750	PRJEB21497	gastric ulcers	Malaysia	gastritis	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2014749	PRJEB21497	gastric noncardia cancer	Malaysia	gastric cancer	Kuala Lumpur	Antrum	gastric mucosa	Illumina MiSeq	
+ERR2597108	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597261	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597051	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597227	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597150	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597078	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597055	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2596992	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597130	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597099	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596989	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597114	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2596982	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597228	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597123	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597120	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597063	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597121	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597159	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596981	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597087	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597081	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597162	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597145	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597039	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597103	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597209	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597052	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597276	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597115	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597184	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597008	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597065	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597000	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597140	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2596985	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597021	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2596988	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597006	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597058	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597274	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597088	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597175	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597157	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597220	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597143	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597190	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597229	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2596994	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597092	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597048	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597059	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597281	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597118	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597139	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597253	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597119	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597037	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597054	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597086	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597128	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597046	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597144	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597023	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597093	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2596995	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597177	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597188	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597282	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597005	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597077	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597061	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597142	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597158	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597189	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2596998	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597265	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597264	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597074	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597156	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597249	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597233	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597019	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597279	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597163	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597009	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597273	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597079	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597110	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596997	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597011	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597146	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597105	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597176	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597260	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597148	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596979	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597269	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597153	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597178	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597136	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597134	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597041	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2596990	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597026	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597050	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597010	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597025	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597187	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597126	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597045	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597166	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597064	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597007	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597256	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597167	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597060	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597204	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597223	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597094	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597267	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597149	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597067	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597268	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597020	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597038	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597160	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2596986	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597257	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597001	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597248	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597252	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597147	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597137	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597224	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597082	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597262	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596987	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2596993	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597211	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597135	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597192	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596983	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597117	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597174	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597097	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596991	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597218	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597245	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597183	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597138	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597116	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597004	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597013	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597161	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597080	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597024	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597098	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597049	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597141	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597075	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597132	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597102	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597201	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597053	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597155	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597057	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597266	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597042	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597104	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597180	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597122	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597044	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597185	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596984	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597127	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597280	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597022	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597043	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597002	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597270	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		lesion	gastric mucosa	Illumina MiSeq	lesion
+ERR2597076	PRJEB26931	gastric cancer	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597181	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597278	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597113	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597133	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2596974	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597003	PRJEB26931	chronic gastritis	China	gastritis		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597131	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597254	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597084	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2597275	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597277	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597182	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2596973	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597101	PRJEB26931	gastric cancer	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596999	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+ERR2597263	PRJEB26931	gastric cancer	China	gastric cancer		tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+ERR2597096	PRJEB26931	intraepithelial neoplasia	China	gastric cancer		Antrum	gastric mucosa	Illumina MiSeq	normal
+ERR2596996	PRJEB26931	chronic gastritis	China	gastritis		Body	gastric mucosa	Illumina MiSeq	normal
+SRR5269897	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270046	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269808	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269822	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269859	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269839	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269935	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270065	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270080	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270079	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269900	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270073	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269766	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269913	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269948	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269988	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269809	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269840	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269969	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269922	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269999	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269976	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269751	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269842	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269745	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269812	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270020	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269814	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269916	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270063	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269846	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269873	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270066	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269796	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269986	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269875	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269786	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270105	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269858	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269830	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270068	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270099	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270092	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269974	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269978	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269850	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269791	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269965	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269964	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269821	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269797	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269775	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270030	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269862	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269890	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269891	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270062	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269750	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270104	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269803	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270086	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269783	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269849	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270103	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269907	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269860	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269774	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269915	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269904	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269950	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269924	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270088	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270085	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269848	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270064	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269818	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270083	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270055	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269880	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270056	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269863	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269844	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270001	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269769	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270107	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269851	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269755	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269982	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269748	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270060	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269884	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269881	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270097	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269760	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270029	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269824	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269879	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269953	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269801	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269757	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270016	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269857	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269832	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269899	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269825	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270075	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269813	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269817	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270047	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269758	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269995	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269868	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269936	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269898	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270108	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269927	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270012	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269820	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270044	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269941	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269872	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269853	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269836	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270058	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269799	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270003	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269906	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269882	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269970	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269938	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269987	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269887	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269754	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269800	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270045	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269741	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270057	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269784	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269831	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269847	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269981	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269998	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269889	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269829	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269983	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270011	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269952	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270054	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269917	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269989	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269925	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270081	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269979	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269854	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270069	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269819	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269746	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270074	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270070	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269861	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269909	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269865	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269901	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269867	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269833	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269896	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270089	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270077	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269768	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269756	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269802	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269864	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270022	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270059	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269747	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270053	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269992	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269886	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270101	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270013	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269940	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269894	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269885	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269993	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269876	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269838	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269883	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269793	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270087	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270072	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269929	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269878	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269753	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269928	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269835	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270018	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269773	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270036	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269798	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269971	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269871	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270004	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269764	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270041	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269937	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269729	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269930	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269902	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270042	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269787	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269910	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269996	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269845	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269834	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269895	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269807	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270067	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270106	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270021	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269826	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269837	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269991	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270038	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270002	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270014	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269852	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269908	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270082	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269914	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269934	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269792	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269888	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269742	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269957	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269956	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269762	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269877	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269994	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270023	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270098	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269815	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269949	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269932	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270000	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270043	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270084	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269985	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269920	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269763	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270078	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269843	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270008	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269918	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269963	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269972	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269905	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269752	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269743	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269856	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270110	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270035	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269997	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269855	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269984	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270017	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269903	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269939	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270109	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270040	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270113	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269765	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270076	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270091	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270007	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270039	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269980	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269782	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269975	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270061	PRJNA375772	superficial gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269931	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5270090	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269823	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270009	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269977	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5269841	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269912	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269816	PRJNA375772	superficial gastritis	China	gastritis	Xian	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269730	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270019	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269958	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Fundus	gastric mucosa	Illumina MiSeq	
+SRR5270037	PRJNA375772	atrophic gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269761	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5269911	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269744	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269874	PRJNA375772	gastric cancer	China	gastric cancer	Inner Mongolia	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269727	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5270071	PRJNA375772	superficial gastritis	China	gastritis	Xian	Body	gastric mucosa	Illumina MiSeq	
+SRR5270112	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5269990	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270006	PRJNA375772	gastric cancer	China	gastric cancer	Xian	para-cancer tissue	gastric mucosa	Illumina MiSeq	para-cancer tissue
+SRR5269919	PRJNA375772	atrophic gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR5270010	PRJNA375772	gastric cancer	China	gastric cancer	Xian	tumorous tissue	gastric mucosa	Illumina MiSeq	tumorous tissue
+SRR5269767	PRJNA375772	superficial gastritis	China	gastritis	Inner Mongolia	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533893	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533885	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533886	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533892	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534220	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534221	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534222	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534225	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534226	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534228	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534101	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534102	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534099	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534100	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534105	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534106	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534104	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534107	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534108	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533944	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533941	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533947	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533946	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533939	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533945	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533949	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533834	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533835	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533836	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533837	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533831	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533833	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533840	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534182	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534181	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534175	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534178	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534177	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534174	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534050	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534049	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534047	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534048	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534045	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534046	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534042	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533903	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533897	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533896	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533895	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534162	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534163	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534164	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534166	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534169	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534171	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533875	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533876	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533877	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533878	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533873	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533874	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533983	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533981	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533988	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533986	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533985	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533979	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533978	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534093	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534094	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Fundus	gastric mucosa	Illumina MiSeq	
+SRR7534091	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534092	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534090	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534087	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534095	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534096	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534098	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534207	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534210	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534209	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534204	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534203	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534206	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534205	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534215	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533916	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533977	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533918	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533919	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533920	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533921	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533922	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534020	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533931	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533932	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533998	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533997	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533996	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533995	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533915	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533994	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534013	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534012	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534132	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534133	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534138	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Fundus	gastric mucosa	Illumina MiSeq	
+SRR7534139	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534136	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534137	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534130	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534131	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533844	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533843	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533846	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533845	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533850	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533849	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533955	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533956	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533842	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533957	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533953	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533954	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533952	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534128	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534129	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534062	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534061	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534068	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534067	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534066	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534065	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534153	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534145	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534144	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534147	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534146	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534143	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534149	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534148	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533993	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534025	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533992	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534024	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534021	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534022	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534029	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534030	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533925	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533990	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533930	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533927	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533917	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534216	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534217	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534218	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534211	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534212	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534097	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534214	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534208	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534186	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534185	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534188	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534184	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534183	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534072	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534069	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534070	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534075	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Fundus	gastric mucosa	Illumina MiSeq	
+SRR7534076	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534073	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534063	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533966	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Fundus	gastric mucosa	Illumina MiSeq	
+SRR7533965	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533963	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533962	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533960	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533959	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533958	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533871	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533851	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533852	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533853	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533855	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533857	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533859	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533860	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533825	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533824	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533827	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533826	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533820	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533823	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534119	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533991	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533999	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533887	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533888	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533889	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7533890	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533891	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7533856	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534113	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534114	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534005	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534006	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534003	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Fundus	gastric mucosa	Illumina MiSeq	
+SRR7534004	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534009	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534010	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Cardia	gastric mucosa	Illumina MiSeq	
+SRR7534007	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534008	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534001	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534002	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534122	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534121	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534124	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534125	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534127	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534043	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534017	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534015	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534014	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Antrum	gastric mucosa	Illumina MiSeq	
+SRR7534028	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534026	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534116	PRJNA481413	gastric cancer	China	gastric cancer	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534187	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	
+SRR7534189	PRJNA481413	gastritis	China	gastritis	Nanchang	Body	gastric mucosa	Illumina MiSeq	

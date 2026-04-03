@@ -5,10 +5,11 @@ library(reshape2)
 library(cowplot)
 
 setwd("/home/dongbiao/GCN/results")
+
 fold <- c("fold_1", "fold_2", "fold_3", "fold_4", "fold_5")
 ## IBD 16S
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_16S_IBD//metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/IBD_16S/metadata.tsv", sep = "\t", row.names = 1)
+
 ### baseline
 ### GCN
 GCN <- c()
@@ -39,8 +40,8 @@ p1 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ## CRC 16S
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_16S_CRC/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/CRC_16S/metadata.tsv", sep = "\t", row.names = 1)
+
 ### baseline
 ### GCN
 GCN <- c()
@@ -71,7 +72,7 @@ p2 <- ggplot(plot_df, aes(x = variable, y = value)) +
 
 
 ## fiber 16S
-metadata <- read.csv("/home/dongbiao/GCN/data/dietary_fiber/metadata.tsv", 
+metadata <- read.csv("../data/dietary_fiber/metadata.tsv", 
                      sep = "\t", row.names = 1)
 ### baseline
 ### GCN
@@ -103,8 +104,8 @@ p3 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ## OSCC 16S
-metadata <- read.csv("/home/dongbiao/GCN/data/OSCC_16S/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/OSCC_16S/metadata.tsv", sep = "\t", row.names = 1)
+
 ### baseline
 ### GCN
 GCN <- c()
@@ -135,8 +136,8 @@ p4 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ## GC 16S
-metadata <- read.csv("/home/dongbiao/GCN/data/Gastritis_16S/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/Gastritis_16S/metadata.tsv", sep = "\t", row.names = 1)
+
 ### baseline
 ### GCN
 GCN <- c()
@@ -176,8 +177,8 @@ p5 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ### CRC WGS
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_WGS_CRC/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/CRC_WGS/metadata.tsv", sep = "\t", row.names = 1)
+
 ### baseline
 ### GCN
 GCN <- c()
@@ -200,15 +201,15 @@ plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Flat_struc
 p6 <- ggplot(plot_df, aes(x = variable, y = value)) +
   geom_boxplot() +
   geom_line(aes(group=fold)) +
-  geom_point(size = 3) + 
+  geom_point(size = 3) +
   labs(x = "", y = "AUC", title = "CRC_WGS") +
   theme_bw() +
   theme(axis.text = element_text(size = 12),
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ### T2D WGS
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_WGS_T2D/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/T2D_WGS/metadata.tsv", sep = "\t", row.names = 1)
+
 ### baseline
 ### GCN
 GCN <- c()
@@ -231,7 +232,7 @@ plot_df$variable <- factor(plot_df$variable, levels = c("Full_tree", "Flat_struc
 p7 <- ggplot(plot_df, aes(x = variable, y = value)) +
   geom_boxplot() +
   geom_line(aes(group=fold)) +
-  geom_point(size = 3) + 
+  geom_point(size = 3) +
   labs(x = "", y = "AUC", title = "T2D_WGS") +
   theme_bw() +
   theme(axis.text = element_text(size = 12),
@@ -239,14 +240,14 @@ p7 <- ggplot(plot_df, aes(x = variable, y = value)) +
 
 
 ### Multi-classification
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_Multi-classification/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/Multi_classification/metadata.tsv", sep = "\t", row.names = 1)
+
 ### baseline
 ### GCN
 GCN <- c()
 for (j in c("ASD", "CRC", "HC", "IBD", "IBS")){
   for (i in c(1:5)){
-    df <- read.csv(paste0("../data/Multi_classification/results/predictions_PhyloGCNE_", i, ".csv"))
+    df <- read.csv(paste0("../data/Multi_classification/results/predictions_", i, ".csv"))
     colnames(df) <- c("sample_id", "ASD", "CRC", "HC", "IBD", "IBS", "label")
     df <- df %>% melt(id.vars = c("sample_id", "label")) %>% filter(variable == j)
     df[, "label"] <- 0
@@ -282,5 +283,5 @@ p8 <- ggplot(plot_df, aes(x = variable, y = mean_value)) +
 
 p <- plot_grid(p1, p2, p3, p4, p5, p6, p7, p8, align="hv", labels = c("a", "b", "c", "d", "e", "f", "g", "h"),
                nrow = 2, ncol=4, plot=FALSE)
-ggsave(p, filename = "Ablation_auc.png",width = 12, height = 7)
-ggsave(p, filename = "Ablation_auc.pdf",width = 12, height = 7)
+ggsave(p, filename = "../results/Ablation_auc.png",width = 12, height = 7)
+ggsave(p, filename = "../results/Ablation_auc.pdf",width = 12, height = 7)

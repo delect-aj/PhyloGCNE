@@ -22,6 +22,11 @@ for (i in unique(df$fold)){
 }
 mean_RF <- mean(RF)
 plot_df <- read.csv("/home/dongbiao/GCN/data/IBD_16S/results/RF_results_biomark.csv")
+plot_df <- plot_df %>% mutate(group_1 = case_when(
+      group_1 == "without_low" ~ "bottom-k exclusion",
+      group_1 == "without_high" ~ "top-k exclusion",
+      TRUE ~ group_1 
+    ))
 p1 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
@@ -43,6 +48,11 @@ for (i in unique(df$fold)){
 }
 mean_RF <- mean(RF)
 plot_df <- read.csv("/home/dongbiao/GCN/data/CRC_16S/results/RF_results_biomark.csv")
+plot_df <- plot_df %>% mutate(group_1 = case_when(
+  group_1 == "without_low" ~ "bottom-k exclusion",
+  group_1 == "without_high" ~ "top-k exclusion",
+  TRUE ~ group_1 
+))
 p2 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
@@ -64,6 +74,11 @@ for (i in unique(df$fold)){
 }
 mean_RF <- mean(RF)
 plot_df <- read.csv("/home/dongbiao/GCN/data/dietary_fiber/results/RF_results_biomark.csv")
+plot_df <- plot_df %>% mutate(group_1 = case_when(
+  group_1 == "without_low" ~ "bottom-k exclusion",
+  group_1 == "without_high" ~ "top-k exclusion",
+  TRUE ~ group_1 
+))
 p3 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
@@ -86,6 +101,11 @@ for (i in unique(df$fold)){
 }
 mean_RF <- mean(RF)
 plot_df <- read.csv("/home/dongbiao/GCN/data/CRC_WGS/results/RF_results_biomark.csv")
+plot_df <- plot_df %>% mutate(group_1 = case_when(
+  group_1 == "without_low" ~ "bottom-k exclusion",
+  group_1 == "without_high" ~ "top-k exclusion",
+  TRUE ~ group_1 
+))
 p4 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
@@ -107,6 +127,11 @@ for (i in unique(df$fold)){
 }
 mean_RF <- mean(RF)
 plot_df <- read.csv("/home/dongbiao/GCN/data/T2D_WGS/results/RF_results_biomark.csv")
+plot_df <- plot_df %>% mutate(group_1 = case_when(
+  group_1 == "without_low" ~ "bottom-k exclusion",
+  group_1 == "without_high" ~ "top-k exclusion",
+  TRUE ~ group_1 
+))
 p5 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +
@@ -134,6 +159,11 @@ for (j in c("ASD", "CRC", "HC", "IBD", "IBS")){
 }
 mean_RF <- mean(RF)
 plot_df <- read.csv("/home/dongbiao/GCN/data/Multi_classification/results/RF_results_biomark.csv")
+plot_df <- plot_df %>% mutate(group_1 = case_when(
+  group_1 == "without_low" ~ "bottom-k exclusion",
+  group_1 == "without_high" ~ "top-k exclusion",
+  TRUE ~ group_1 
+))
 p6 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   geom_line() +
   geom_hline(yintercept = mean_RF, linetype = "dashed", color = "black", size = 0.5) +

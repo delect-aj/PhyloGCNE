@@ -6,21 +6,21 @@
 #SBATCH --mem=250G
 #SBATCH -o phylo_spec.out
 #SBATCH -e phylo_spec.err
-#SBATCH --exclude=cu01
 
 module load miniconda/4.9.2 
 source activate PhyloSpec
 
 software_path=/home/dongbiao/software/Phylo-Spec
+file_path=/home/dongbiao/GCN/data/OSCC_16S
 
 for i in $(seq 1 5); do
 python ${software_path}/src/model/PhyloSpec_train_test.py \
-    -t phylogeny.nwk -c data/train_${i}.csv --PhyloSpec train -bs 64 \
-    -taxo /beegfs/dongbiao/greengene2/exported-taxonomy/taxonomy.tsv -ep 100 -fold ${i} \
+    -t ${file_path}/phylogeny.nwk -c ${file_path}/data/train_${i}.csv --PhyloSpec train -bs 64 \
+    -taxo /beegfs/dongbiao/greengene2/exported-taxonomy/taxonomy.tsv -ep 50 -fold ${i} \
     -o output/
 
 python ${software_path}/src/model/PhyloSpec_train_test.py \
-    -t phylogeny.nwk -c data/test_${i}.csv --PhyloSpec test -bs 64 \
+    -t ${file_path}/phylogeny.nwk -c ${file_path}/data/test_${i}.csv --PhyloSpec test -bs 64 \
     -taxo /beegfs/dongbiao/greengene2/exported-taxonomy/taxonomy.tsv -fold ${i} \
     -o output/
     

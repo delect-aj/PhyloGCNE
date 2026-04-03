@@ -17,7 +17,7 @@ CUDA_VISIBLE_DEVICES=7 python ${model_file}/GCN_model.py \
     --train_table data/train_${i}.biom \
     --test_table data/test_${i}.biom \
     --metadata_filename metadata.tsv \
-    --phylogeny_file_path phylogeny_normalize.nwk \
+    --phylogeny_file_path phylogeny.nwk \
     --fold ${i} --output_dir results --batch_size 128 \
     --learning_rate 0.001 --num_layers 4 --ffn True \
     --norm_type batch_norm --residual True \

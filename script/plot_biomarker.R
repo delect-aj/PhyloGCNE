@@ -9,7 +9,7 @@ setwd("/home/dongbiao/GCN/results")
 fold <- c("fold_1", "fold_2", "fold_3", "fold_4", "fold_5")
 percentile <- c(0.1, 0.2, 0.4, 0.5, 0.6, 0.8)
 ## IBD 16S
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_16S_IBD/metadata.tsv", 
+metadata <- read.csv("../data/IBD_16S/metadata.tsv", 
                      sep = "\t", row.names = 1)
 
 df <- read.csv("../data/IBD_16S/results/RF_results.csv")
@@ -21,7 +21,7 @@ for (i in unique(df$fold)){
   RF <- c(RF, auc(roc_result))
 }
 mean_RF <- mean(RF)
-plot_df <- read.csv("/home/dongbiao/GCN/data/IBD_16S/results/RF_results_biomark.csv")
+plot_df <- read.csv("../data/IBD_16S/results/RF_results_biomark.csv")
 plot_df <- plot_df %>% mutate(group_1 = case_when(
       group_1 == "without_low" ~ "bottom-k exclusion",
       group_1 == "without_high" ~ "top-k exclusion",
@@ -36,8 +36,8 @@ p1 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   theme(axis.text = element_text(size = 12))
 
 ## CRC 16S
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_16S_CRC/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/CRC_16S/metadata.tsv", sep = "\t", row.names = 1)
+
 df <- read.csv("../data/CRC_16S/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"] 
 RF <- c()
@@ -47,7 +47,7 @@ for (i in unique(df$fold)){
   RF <- c(RF, auc(roc_result))
 }
 mean_RF <- mean(RF)
-plot_df <- read.csv("/home/dongbiao/GCN/data/CRC_16S/results/RF_results_biomark.csv")
+plot_df <- read.csv("../data/CRC_16S/results/RF_results_biomark.csv")
 plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_low" ~ "bottom-k exclusion",
   group_1 == "without_high" ~ "top-k exclusion",
@@ -62,7 +62,7 @@ p2 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   theme(axis.text = element_text(size = 12))
 
 ### Fiber 16S
-metadata <- read.csv("/home/dongbiao/GCN/data/dietary_fiber/metadata.tsv", 
+metadata <- read.csv("../data/dietary_fiber/metadata.tsv", 
                      sep = "\t", row.names = 1)
 df <- read.csv("../data/dietary_fiber/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"] 
@@ -73,7 +73,7 @@ for (i in unique(df$fold)){
   RF <- c(RF, auc(roc_result))
 }
 mean_RF <- mean(RF)
-plot_df <- read.csv("/home/dongbiao/GCN/data/dietary_fiber/results/RF_results_biomark.csv")
+plot_df <- read.csv("../data/dietary_fiber/results/RF_results_biomark.csv")
 plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_low" ~ "bottom-k exclusion",
   group_1 == "without_high" ~ "top-k exclusion",
@@ -88,7 +88,7 @@ p3 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   theme(axis.text = element_text(size = 12))
 
 ### OSCC 16S
-metadata <- read.csv("/home/dongbiao/GCN/data/OSCC_16S/metadata.tsv", 
+metadata <- read.csv("../data/OSCC_16S/metadata.tsv", 
                      sep = "\t", row.names = 1)
 df <- read.csv("../data/OSCC_16S/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"] 
@@ -99,7 +99,7 @@ for (i in unique(df$fold)){
   RF <- c(RF, auc(roc_result))
 }
 mean_RF <- mean(RF)
-plot_df <- read.csv("/home/dongbiao/GCN/data/OSCC_16S/results/RF_results_biomark.csv")
+plot_df <- read.csv("../data/OSCC_16S/results/RF_results_biomark.csv")
 plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_low" ~ "bottom-k exclusion",
   group_1 == "without_high" ~ "top-k exclusion",
@@ -115,7 +115,7 @@ p4 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
 
 
 ### GC 16S
-metadata <- read.csv("/home/dongbiao/GCN/data/Gastritis_16S/metadata.tsv", 
+metadata <- read.csv("../data/Gastritis_16S/metadata.tsv", 
                      sep = "\t", row.names = 1)
 df <- read.csv("../data/Gastritis_16S/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"] 
@@ -126,7 +126,7 @@ for (i in unique(df$fold)){
   RF <- c(RF, auc(roc_result))
 }
 mean_RF <- mean(RF)
-plot_df <- read.csv("/home/dongbiao/GCN/data/Gastritis_16S/results/RF_results_biomark.csv")
+plot_df <- read.csv("../data/Gastritis_16S/results/RF_results_biomark.csv")
 plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_low" ~ "bottom-k exclusion",
   group_1 == "without_high" ~ "top-k exclusion",
@@ -142,8 +142,7 @@ p5 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
 
 
 ### CRC WGS
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_WGS_CRC/metadata.tsv", 
-                     sep = "\t", row.names = 1)
+metadata <- read.csv("../data/CRC_WGS/metadata.tsv", sep = "\t", row.names = 1)
 df <- read.csv("../data/CRC_WGS/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"] 
 RF <- c()
@@ -153,7 +152,7 @@ for (i in unique(df$fold)){
   RF <- c(RF, auc(roc_result))
 }
 mean_RF <- mean(RF)
-plot_df <- read.csv("/home/dongbiao/GCN/data/CRC_WGS/results/RF_results_biomark.csv")
+plot_df <- read.csv("../data/CRC_WGS/results/RF_results_biomark.csv")
 plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_low" ~ "bottom-k exclusion",
   group_1 == "without_high" ~ "top-k exclusion",
@@ -168,7 +167,7 @@ p6 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   theme(axis.text = element_text(size = 12))
 
 ### T2D WGS
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_WGS_T2D/metadata.tsv", 
+metadata <- read.csv("../data/T2D_WGS/metadata.tsv", 
                      sep = "\t", row.names = 1)
 df <- read.csv("../data/T2D_WGS/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"] 
@@ -179,7 +178,7 @@ for (i in unique(df$fold)){
   RF <- c(RF, auc(roc_result))
 }
 mean_RF <- mean(RF)
-plot_df <- read.csv("/home/dongbiao/GCN/data/T2D_WGS/results/RF_results_biomark.csv")
+plot_df <- read.csv("../data/T2D_WGS/results/RF_results_biomark.csv")
 plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_low" ~ "bottom-k exclusion",
   group_1 == "without_high" ~ "top-k exclusion",
@@ -194,7 +193,7 @@ p7 <- ggplot(plot_df, aes(x = group_2, y = value, color = group_1)) +
   theme(axis.text = element_text(size = 12))
 
 ### Mult-Classification
-metadata <- read.csv("/home/dongbiao/software/Phylo-Spec/data/Real_Dateset_Multi-classification/metadata.tsv", 
+metadata <- read.csv("../data/Multi_classification/metadata.tsv", 
                      sep = "\t", row.names = 1)
 
 df <- read.csv("../data/Multi_classification/results/RF_results.csv")
@@ -211,7 +210,7 @@ for (j in c("ASD", "CRC", "HC", "IBD", "IBS")){
   }
 }
 mean_RF <- mean(RF)
-plot_df <- read.csv("/home/dongbiao/GCN/data/Multi_classification/results/RF_results_biomark.csv")
+plot_df <- read.csv("../data/Multi_classification/results/RF_results_biomark.csv")
 plot_df <- plot_df %>% mutate(group_1 = case_when(
   group_1 == "without_low" ~ "bottom-k exclusion",
   group_1 == "without_high" ~ "top-k exclusion",
@@ -230,5 +229,6 @@ p <- (p1 + p2 + p3 + p4 + p5 + p6 + p7 + p8) +
   theme(legend.position = 'bottom') 
 p <- p + plot_annotation(tag_levels = list(c('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'))) +
   theme(plot.tag = element_text(face = "bold"))
-ggsave(p, filename = "Biomarker_auc.png", width = 12, height = 7)
+ggsave(p, filename = "../results/Biomarker_auc.png", width = 12, height = 7)
+ggsave(p, filename = "../results/Biomarker_auc.pdf", width = 12, height = 7)
 

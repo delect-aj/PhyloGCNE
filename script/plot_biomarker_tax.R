@@ -8,7 +8,9 @@ library(ggtext)
 setwd("/home/dongbiao/GCN/results")
 
 ### greengenes1 tax
-tax_ref <- read.csv("/beegfs/db/greengenes/gg_13_8_otus/taxonomy/99_otu_taxonomy.txt", 
+# NOTE: This file is a large external database not included in this repository.
+# Download from: https://greengenes.secondgenome.com (GreenGenes 13_8, 99% OTUs)
+tax_ref <- read.csv("/beegfs/db/greengenes/gg_13_8_otus/taxonomy/99_otu_taxonomy.txt",
                     sep="\t", header = FALSE)
 tax_ref$V1 <- as.character(tax_ref$V1)
 taxonomy_df <- as.data.frame(str_split_fixed(tax_ref$V2, pattern = "; ", n = 7))
@@ -16,6 +18,8 @@ colnames(taxonomy_df) <- c("Kingdom", "Phylum", "Class", "Order", "Family", "Gen
 rownames(taxonomy_df) <- tax_ref$V1
 
 ### greengenes2 tax
+# NOTE: This file is a large external database not included in this repository.
+# Download from: https://ftp.microbio.me/greengenes_release/current (GreenGenes2)
 tax_ref <- read.csv("/beegfs/dongbiao/greengene2/exported-taxonomy/taxonomy.tsv", sep="\t")
 taxonomy_df_2 <- as.data.frame(str_split_fixed(tax_ref$Taxon, pattern = "; ", n = 7))
 colnames(taxonomy_df_2) <- c("Kingdom", "Phylum", "Class", "Order", "Family", "Genus", "Species")

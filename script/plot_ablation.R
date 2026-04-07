@@ -156,7 +156,7 @@ for (i in c(1:5)){
 ### GCN ablation phylo
 GCN_phylo <- c()
 for (i in c(1:5)){
-  df <- read.csv(paste0("../data/dietary_fiber/ablation_phylo/predictions_", i, ".csv"))
+  df <- read.csv(paste0("../data/Gastritis_16S/ablation_phylo/predictions_", i, ".csv"))
   roc_result <- roc(df$True_Label, df$Prob_Class_1)
   GCN_phylo <- c(GCN_phylo, auc(roc_result))
 }

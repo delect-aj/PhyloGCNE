@@ -228,7 +228,7 @@ p2 <- ggplot(plot_df, aes(x = variable, y = value)) +
         axis.text.x = element_text(angle = 30, vjust = 1, hjust = 1))
 
 ### Dietary fiber 16S
-metadata <- read.csv("../data/dietary_fiber/results/metadata.tsv", sep = "\t", row.names = 1)
+metadata <- read.csv("../data/dietary_fiber/metadata.tsv", sep = "\t", row.names = 1)
 ### RF
 df <- read.csv("../data/dietary_fiber/results/RF_results.csv")
 df[, "label"] <- metadata[df[, 1], "group"]

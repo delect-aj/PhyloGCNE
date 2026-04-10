@@ -574,7 +574,7 @@ def evaluate_epoch(model, loader, device, logger, epoch_num_str="Eval", class_we
 
 
 def calculate_node_importance_beta(model, loader, device, all_nodes_names, num_classes, output_dir, fold, 
-                                   n_samples=50, stdev_spread=0.15, beta_alpha=2.0, beta_beta=2.0):
+                                   n_samples=50, stdev_spread=0.15, beta_alpha=2.0, beta_beta=5.0):
     """
     Computing Feature Importance Using Beta Distribution Noise (BAS-Grad Style)
     Args:
@@ -767,7 +767,7 @@ def main():
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--stdev_spread", type=float, default=0.15)
     parser.add_argument("--beta_alpha", type=float, default=2)
-    parser.add_argument("--beta_beta", type=float, default=2)
+    parser.add_argument("--beta_beta", type=float, default=5)
     parser.add_argument("--device", type=str, default="cuda")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--log_interval", type=int, default=20)

@@ -879,31 +879,39 @@ def main():
         # Training Loop
         logger.info(f"Starting training for fold {args.fold}...")
         best_test_auc = -1.0
-        epochs_no_improve = 0
-        
+        best_train_loss = float('inf')
+        early_stop_patience = 5
+        train_no_improve_count = 0
+
         history = {
             'train_loss': [], 'test_loss': [],
             'train_auc': [], 'test_auc': []
         }
-        
+
         for epoch in range(1, args.epochs + 1):
             train_metrics, _ = train_epoch(model, train_loader, optimizer, device, logger, epoch, scheduler, args, class_weights_tensor)
             test_metrics, _, _, _ = evaluate_epoch(model, test_loader, device, logger, f"Test Ep {epoch}", class_weights_tensor)
-    
+
             history['train_loss'].append(train_metrics['loss'])
             history['train_auc'].append(train_metrics['auc'])
             history['test_loss'].append(test_metrics['loss'])
             history['test_auc'].append(test_metrics['auc'])
-    
-            # Save best model
-            is_best = test_metrics['auc'] > best_test_auc
-            if is_best:
+
+            # Save best model based on test AUC
+            if test_metrics['auc'] > best_test_auc:
                 best_test_auc = test_metrics['auc']
-                epochs_no_improve = 0
                 torch.save(model.state_dict(), best_model_path)
+
+            # Early stopping based on training loss
+            if train_metrics['loss'] < best_train_loss:
+                best_train_loss = train_metrics['loss']
+                train_no_improve_count = 0
             else:
-                epochs_no_improve += 1
-                
+                train_no_improve_count += 1
+                if train_no_improve_count >= early_stop_patience:
+                    logger.info(f"Early stopping triggered at epoch {epoch}: training loss did not decrease for {early_stop_patience} consecutive epochs.")
+                    break
+
         logger.info(f"Training for fold {args.fold} finished. Best Test AUC: {best_test_auc:.4f}")
         plot_metrics(history, args.output_dir, args.fold, logger)
     

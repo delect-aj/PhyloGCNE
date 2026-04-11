@@ -25,4 +25,13 @@ notebook>=6.4.0
 # h5py>=3.3.0      # For HDF5 file support
 
 # R dependencies (for visualization scripts)
-# Install via: install.packages(c("ggplot2", "pROC", "dplyr", "tidyr", "reshape2"))
+# Install via: install.packages(c("ggplot2", "pROC", "dplyr", "tidyr", "reshape2",
+#   "ggpubr", "Hmisc", "patchwork", "cowplot", "vegan", "igraph"))
+#
+# Bioconductor packages:
+# if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+# BiocManager::install("phyloseq")
+#
+# GitHub packages:
+# remotes::install_github("jbisanz/qiime2R")
+# remotes::install_github("microbiota/ggClusterNet")

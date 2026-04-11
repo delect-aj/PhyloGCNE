@@ -822,7 +822,7 @@ def main():
     parser.add_argument("--hidden_channels", type=int, default=100, help="Number of hidden units in GCN layers.")
     parser.add_argument("--heads", type=int, default=1, help="Number of attention heads in the GATConv layer.")
     parser.add_argument("--dropout_rate", type=float, default=0.0, help="Dropout rate used in the classifier head.")
-    parser.add_argument("--num_layers", type=int, default=5, help="Total number of GCN layers in the model.")
+    parser.add_argument("--num_layers", type=int, default=4, help="Total number of GCN layers in the model.")
     parser.add_argument("--act", type=str, default='relu', help="Activation function used in FFN layers.")
     parser.add_argument("--ffn", type=lambda x: str(x).lower() == 'true', default=True, help="Enable feed-forward network (FFN) block in GCN layers.")
     parser.add_argument("--residual", type=lambda x: str(x).lower() == 'true', default=True, help="Enable residual connections in GCN layers.")
@@ -831,9 +831,9 @@ def main():
 
     # Training Hyperparameters
     parser.add_argument("--epochs", type=int, default=100)
-    parser.add_argument("--batch_size", type=int, default=16)
-    parser.add_argument("--learning_rate", type=float, default=5e-4)
-    parser.add_argument("--weight_decay", type=float, default=0.0)
+    parser.add_argument("--batch_size", type=int, default=32)
+    parser.add_argument("--learning_rate", type=float, default=1e-3)
+    parser.add_argument("--weight_decay", type=float, default=1e-5)
     parser.add_argument("--optimizer", type=str, default="adamw", choices=["adamw", "adam"])
     parser.add_argument("--lr_scheduler_type", type=str, default="none", choices=['linear', 'cosine', 'none'])
     parser.add_argument("--lr_warmup_ratio", type=float, default=0.0)

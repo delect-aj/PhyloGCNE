@@ -112,7 +112,7 @@ Key model arguments:
 | `--output_dir` | Root output directory | `./graph_model_crc_workdir/v19` |
 | `--label_column` | Label column name in metadata | `group` |
 | `--hidden_channels` | Hidden units per GCN layer | `100` |
-| `--num_layers` | Number of GCN layers | `5` |
+| `--num_layers` | Number of GCN layers | `4` |
 | `--act` | Activation function (`relu`, `gelu`, etc.) | `relu` |
 | `--ffn` | Enable FFN block in each GCN layer | `True` |
 | `--residual` | Enable residual connections | `True` |
@@ -120,9 +120,9 @@ Key model arguments:
 | `--readout` | Graph readout (`mean`/`max`/`mean_max`/`attention`) | `mean` |
 | `--dropout_rate` | Dropout rate | `0.0` |
 | `--epochs` | Training epochs | `100` |
-| `--batch_size` | Training batch size | `16` |
-| `--learning_rate` | Learning rate | `5e-4` |
-| `--weight_decay` | Weight decay | `0.0` |
+| `--batch_size` | Training batch size | `32` |
+| `--learning_rate` | Learning rate | `1e-3` |
+| `--weight_decay` | Weight decay | `1e-5` |
 | `--optimizer` | Optimizer (`adamw`/`adam`) | `adamw` |
 | `--lr_scheduler_type` | LR scheduler (`linear`/`cosine`/`none`) | `none` |
 | `--lr_warmup_ratio` | Warmup ratio for LR scheduler | `0.0` |

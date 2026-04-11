@@ -595,15 +595,24 @@ def evaluate_epoch(model, loader, device, logger, epoch_num_str="Eval", class_we
 def calculate_node_importance_beta(model, loader, device, all_nodes_names, num_classes, output_dir, fold, 
                                    n_samples=50, stdev_spread=0.15, beta_alpha=2.0, beta_beta=5.0):
     """
-    Computing Feature Importance Using Beta Distribution Noise (BAS-Grad Style)
+    Computing Feature Importance Using Beta Distribution Noise (BAS-Grad Style).
+
+    For each perturbation sample:
+        z  ~ Beta(alpha, beta)
+        z' = z - alpha/(alpha+beta)          # zero-mean bounded perturbation
+        epsilon_j = lambda * sigma_j * z'    # lambda = stdev_spread (default 0.15)
+
     Args:
-        beta_alpha, beta_beta: Shape parameters of the Beta distribution.
-        
-        (2, 2) resembles a bell-shaped distribution (bounded, peaked in the middle).
-        
-        (1, 1) corresponds to a uniform distribution.
-        
-        (0.5, 0.5) yields a U-shaped distribution.
+        n_samples     : number of noise samples per batch.
+        stdev_spread  : lambda, overall perturbation scale (default 0.15).
+        beta_alpha    : alpha shape parameter of the Beta distribution (default 2).
+        beta_beta     : beta  shape parameter of the Beta distribution (default 5).
+
+    Common Beta(alpha, beta) shapes:
+        (2, 5)  right-skewed, mean = 2/7 ≈ 0.286  [default]
+        (2, 2)  bell-shaped, mean = 0.5
+        (1, 1)  uniform
+        (0.5, 0.5) U-shaped
     """
     model.eval()
     num_tree_nodes = len(all_nodes_names)
@@ -617,25 +626,29 @@ def calculate_node_importance_beta(model, loader, device, all_nodes_names, num_c
         param.requires_grad = False
 
     beta_dist = torch.distributions.Beta(
-        torch.tensor([beta_alpha], device=device), 
+        torch.tensor([beta_alpha], device=device),
         torch.tensor([beta_beta], device=device)
     )
+    # E[Beta(α, β)] = α / (α + β); used to zero-mean the samples
+    beta_mean = beta_alpha / (beta_alpha + beta_beta)
 
     for batch_idx, batch_data in enumerate(tqdm(loader, desc="Calculating")):
         batch_data = batch_data.to(device)
         original_x = batch_data.x.clone().detach()
-        
-        std_per_feature = original_x.std(dim=0, keepdim=True) 
+
+        std_per_feature = original_x.std(dim=0, keepdim=True)
         std_per_feature[std_per_feature == 0] = 1e-5
-        sigma = std_per_feature * stdev_spread
+        sigma = std_per_feature  # σ_j per taxon
 
         batch_grads_sum = torch.zeros_like(original_x)
 
         for i in range(n_samples):
-            beta_noise = beta_dist.sample(original_x.shape).squeeze(-1)
-            centered_noise = (beta_noise - 0.5)
+            # z ~ Beta(α, β),  z' = z - α/(α+β)  →  E[z'] = 0
+            z = beta_dist.sample(original_x.shape).squeeze(-1)
+            z_prime = z - beta_mean
 
-            noise = centered_noise * sigma 
+            # ε_j = λ · σ_j · z'   (λ = stdev_spread = 0.15)
+            noise = stdev_spread * sigma * z_prime
 
             curr_noisy_x = torch.clamp(original_x + noise, min=0.0)
             

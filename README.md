@@ -104,22 +104,36 @@ Key model arguments:
 
 | Argument | Description | Default |
 |---|---|---|
-| `--train_table` | Training BIOM file | required |
-| `--test_table` | Test BIOM file | required |
-| `--metadata_filename` | Metadata TSV file | required |
-| `--phylogeny_file_path` | Newick phylogenetic tree | required |
-| `--fold` | Fold identifier for output | required |
-| `--output_dir` | Output directory | required |
-| `--hidden_channels` | Hidden units per GCN layer | 100 |
-| `--num_layers` | Number of GCN layers | 5 |
-| `--ffn` | Enable feed-forward blocks | True |
-| `--residual` | Enable residual connections | True |
+| `--train_table` | Path to training BIOM file | required |
+| `--test_table` | Path to test BIOM file | required |
+| `--metadata_filename` | Path to metadata TSV file | required |
+| `--phylogeny_file_path` | Path to Newick phylogenetic tree | required |
+| `--fold` | Fold/study name for output file naming | `PRJDB11845` |
+| `--output_dir` | Root output directory | `./graph_model_crc_workdir/v19` |
+| `--label_column` | Label column name in metadata | `group` |
+| `--hidden_channels` | Hidden units per GCN layer | `100` |
+| `--num_layers` | Number of GCN layers | `5` |
+| `--act` | Activation function (`relu`, `gelu`, etc.) | `relu` |
+| `--ffn` | Enable FFN block in each GCN layer | `True` |
+| `--residual` | Enable residual connections | `True` |
 | `--norm_type` | Normalization type (`batch_norm`/`layer_norm`) | `batch_norm` |
-| `--dropout_rate` | Dropout rate | 0.0 |
-| `--batch_size` | Training batch size | 16 |
-| `--learning_rate` | Learning rate | 5e-4 |
-| `--epochs` | Training epochs | 100 |
-| `--feature_importance` | Enable feature importance output | False |
+| `--readout` | Graph readout (`mean`/`max`/`mean_max`/`attention`) | `mean` |
+| `--dropout_rate` | Dropout rate | `0.0` |
+| `--epochs` | Training epochs | `100` |
+| `--batch_size` | Training batch size | `16` |
+| `--learning_rate` | Learning rate | `5e-4` |
+| `--weight_decay` | Weight decay | `0.0` |
+| `--optimizer` | Optimizer (`adamw`/`adam`) | `adamw` |
+| `--lr_scheduler_type` | LR scheduler (`linear`/`cosine`/`none`) | `none` |
+| `--lr_warmup_ratio` | Warmup ratio for LR scheduler | `0.0` |
+| `--max_grad_norm` | Max gradient norm for clipping | `1.0` |
+| `--seed` | Random seed | `42` |
+| `--device` | Device (`cuda`/`cpu`) | `cuda` |
+| `--workers` | DataLoader worker processes | `4` |
+| `--feature_importance` | Compute feature importance instead of training | `False` |
+| `--stdev_spread` | Noise std scale for feature importance | `0.15` |
+| `--beta_alpha` | Beta distribution α for feature importance noise | `2` |
+| `--beta_beta` | Beta distribution β for feature importance noise | `5` |
 
 Example:
 ```bash

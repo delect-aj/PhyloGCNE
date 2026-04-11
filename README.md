@@ -67,7 +67,7 @@ run model
 
 1. **Phylogenetic Integration**: Incorporates phylogenetic tree structure and branch lengths into GCN architecture via Gaussian kernel edge weighting. Edge attributes are constructed via a fixed Gaussian kernel transform of phylogenetic distances ( $e_{uv} = \exp(-2\rho d^2_{uv}),\ \rho=2$ ), which are subsequently projected into high-dimensional embeddings via a learnable linear layer ( $W_\text{edge} \in \mathbb{R}^{1 \times d}$ ) within the message-passing framework.
 2. **Multiple Datasets**: Supports 16S and WGS microbial datasets across 7+ disease phenotypes
-3. **Multi-classification**: Handles multi-class classification with automatic SMOTE oversampling
+3. **Multi-classification**: Handles multi-class classification
 4. **Ablation Studies**: Systematic analysis of phylogenetic information importance (topology and branch-length ablation)
 5. **Benchmarking**: Comparison with DeepPhylo and PhyloSpec
 6. **Model Interpretation**: Feature importance for biomarker discovery
@@ -81,7 +81,6 @@ run model
 - scikit-learn
 - biom-format
 - scikit-bio
-- imbalanced-learn (for SMOTE)
 - Jupyter Notebook
 - R (for visualization: ggplot2, pROC, dplyr, tidyr, reshape2)
 

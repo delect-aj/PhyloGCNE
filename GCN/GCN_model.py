@@ -23,7 +23,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from skbio import TreeNode
-from imblearn.over_sampling import SMOTE
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_auc_score
 from sklearn.model_selection import train_test_split
 
@@ -763,46 +762,6 @@ class ListDataset(Dataset):
         return self._data_list[idx]
 
 
-def build_smote_augmented_data(dataset, train_indices):
-    """Apply SMOTE only to the training split and return an augmented Data list.
-
-    Args:
-        dataset: MicroGraphAblationDataset (unaugmented, with self.full_tree stored).
-        train_indices: list of integer indices that belong to the training split.
-
-    Returns:
-        List of torch_geometric Data objects (originals + synthetic samples).
-    """
-    X = dataset.table.iloc[train_indices].values
-    y = [dataset.data_list[i].y.item() for i in train_indices]
-
-    label_counts = pd.Series(y).value_counts()
-    min_count = label_counts.min()
-    imbalance_ratio = label_counts.max() / min_count if min_count > 0 else float('inf')
-
-    augmented = [dataset.data_list[i] for i in train_indices]
-
-    if imbalance_ratio < 5.0:
-        return augmented
-
-    smote = SMOTE(random_state=42)
-    X_resampled, y_resampled = smote.fit_resample(X, y)
-    n_original = len(train_indices)
-    print(
-        f"SMOTE applied (imbalance ratio {imbalance_ratio:.1f}x). "
-        f"Train data expanded from {n_original} to {len(X_resampled)} samples."
-    )
-
-    for i in range(n_original, len(X_resampled)):
-        data = dataset._build_graph_from_sample(
-            dataset.fid, X_resampled[i], y_resampled[i],
-            f"smote_sample_{i}", dataset.full_tree
-        )
-        augmented.append(data)
-
-    return augmented
-
-
 def main():
     parser = argparse.ArgumentParser(description="Microbe GCN Model Training")
     
@@ -895,10 +854,7 @@ def main():
         all_indices, test_size=0.1, stratify=train_labels_all, random_state=args.seed
     )
 
-    # SMOTE is applied only to the training split (after splitting) to prevent
-    # synthetic samples from leaking into the validation set.
-    train_augmented = build_smote_augmented_data(train_dataset, train_idx)
-    train_subset = ListDataset(train_augmented)
+    train_subset = ListDataset([train_dataset.data_list[i] for i in train_idx])
     val_subset = Subset(train_dataset, val_idx)
 
     train_loader = DataLoader(train_subset, batch_size=args.batch_size, shuffle=True, num_workers=args.workers)

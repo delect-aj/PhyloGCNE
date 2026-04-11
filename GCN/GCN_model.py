@@ -14,7 +14,6 @@ import os
 import time
 import random
 import csv
-from typing import List
 from tqdm import tqdm
 from typing import Dict, List
 from collections import OrderedDict
@@ -26,6 +25,7 @@ import matplotlib.pyplot as plt
 from skbio import TreeNode
 from imblearn.over_sampling import SMOTE
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score, roc_auc_score
+from sklearn.model_selection import train_test_split
 
 import torch
 import torch.nn as nn
@@ -34,6 +34,7 @@ import torch.optim as optim
 import torch.backends.cudnn as cudnn
 import torch_geometric
 import torch.nn.functional as F
+from torch.utils.data import Subset
 from torch_geometric.loader import DataLoader
 from torch_geometric.data import Dataset, Data
 from torch_geometric.nn.conv import MessagePassing
@@ -106,32 +107,17 @@ class MicroGraphAblationDataset(Dataset):
                 labels.append(df_metadata.loc[sid, label_column])
         self.table = self.table.loc[valid_samples]
         
-        if len(np.unique(labels)) > 2:
-            smote = SMOTE(random_state=42)
-            X_resampled, y_resampled = smote.fit_resample(self.table.values, labels)
-            
-            new_sample_ids = []
-            for i in range(len(X_resampled)):
-                if i < len(valid_samples):
-                    new_sample_ids.append(valid_samples[i])
-                else:
-                    new_sample_ids.append(f"smote_sample_{i}")
-                    
-            self.table = pd.DataFrame(X_resampled, index=new_sample_ids, columns=self.table.columns)
-            labels_dict = dict(zip(new_sample_ids, y_resampled))
-            print(f"SMOTE applied. Data expanded from {len(valid_samples)} to {len(new_sample_ids)} samples.")
-        else:
-            labels_dict = dict(zip(valid_samples, labels))
+        labels_dict = dict(zip(valid_samples, labels))
         # ------------------------------
-        
-        self.all_nodes_in_tree = [node.name for node in full_tree.postorder()]
+
+        self.full_tree = full_tree
+        self.all_nodes_in_tree = [node.name for node in full_tree.traverse(self_before=True)]
         self.data_list = []
-        
+
         for sample_id in tqdm(self.table.index.values):
             sample_data = np.array(self.table.loc[sample_id])
-            # label = df_metadata.loc[sample_id, label_column]
             label = labels_dict[sample_id]
-            
+
             data = self._build_graph_from_sample(self.fid, sample_data, label, sample_id, full_tree)
             self.data_list.append(data)
         
@@ -160,7 +146,6 @@ class MicroGraphAblationDataset(Dataset):
                 
             if not node.is_root():
                 node_idx = node_to_idx[node.name]
-                parent_idx = node_to_idx[node.parent.name]
                 parent_idx = node_to_idx[node.parent.name]
                 edge_list.extend([[node_idx, parent_idx]])
                 distance = node.length if node.length is not None else 0.0
@@ -332,6 +317,40 @@ class GCNConvEdgeLayer(BaseEdgeGNNLayer):
                  norm_type, act='relu'):
         super().__init__(dim_in, dim_out, dropout, residual, ffn, norm_type, act)
         self.conv = GCNConvWithEdges(dim_in, dim_out, edge_dim=edge_dim, bias=True)
+
+
+class AttentionReadout(nn.Module):
+    """Soft attention pooling over nodes within each graph.
+
+    For each node computes a scalar attention score via a linear layer,
+    applies graph-wise softmax, then returns the weighted sum of node
+    features together with the raw attention scores.
+    """
+    def __init__(self, in_channels: int):
+        super().__init__()
+        self.gate = nn.Linear(in_channels, 1)
+
+    def forward(self, x: Tensor, batch: Tensor):
+        # x: (total_nodes, in_channels), batch: (total_nodes,)
+        scores = self.gate(x)  # (total_nodes, 1)
+
+        # Graph-wise softmax: shift by per-graph max for numerical stability
+        scores_exp = torch.zeros_like(scores)
+        num_graphs = batch.max().item() + 1
+        for g in range(int(num_graphs)):
+            mask = batch == g
+            s = scores[mask]
+            s = s - s.max()
+            scores_exp[mask] = torch.exp(s)
+
+        denom = torch.zeros(int(num_graphs), 1, device=x.device)
+        denom.scatter_add_(0, batch.unsqueeze(1), scores_exp)
+        attn = scores_exp / (denom[batch] + 1e-9)  # (total_nodes, 1)
+
+        out = torch.zeros(int(num_graphs), x.size(1), device=x.device)
+        out.scatter_add_(0, batch.unsqueeze(1).expand_as(x), attn * x)
+
+        return out, attn.squeeze(1)
 
 
 class GCNEClassifier(nn.Module):
@@ -675,7 +694,7 @@ def calculate_node_importance_beta(model, loader, device, all_nodes_names, num_c
     
       
 def plot_metrics(history: Dict[str, List[float]], output_dir: str, fold_num: str, logger: logging.Logger):
-    """Plots training and test metrics (Loss and AUC) over epochs and saves the figure."""
+    """Plots training, validation, and test metrics (Loss and AUC) over epochs and saves the figure."""
     if not history or not history['train_loss']:
         logger.warning("History is empty, skipping plotting.")
         return
@@ -684,11 +703,13 @@ def plot_metrics(history: Dict[str, List[float]], output_dir: str, fold_num: str
     epochs_range = range(1, num_epochs + 1)
 
     plt.style.use('seaborn-v0_8-whitegrid')
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 3))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 3))
     # Plot 1: Loss vs. Epochs
     ax1.plot(epochs_range, history['train_loss'], 'o-', label='Train Loss', color='blue', markersize=2)
+    if 'val_loss' in history and history['val_loss']:
+        ax1.plot(epochs_range, history['val_loss'], 'o-', label='Val Loss', color='orange', markersize=2)
     ax1.plot(epochs_range, history['test_loss'], 'o-', label='Test Loss', color='red', markersize=2)
-    ax1.set_title('Training and Test Loss', fontsize=10)
+    ax1.set_title('Loss over Epochs', fontsize=10)
     ax1.set_xlabel('Epoch', fontsize=12)
     ax1.set_ylabel('Loss', fontsize=12)
     ax1.legend()
@@ -696,8 +717,10 @@ def plot_metrics(history: Dict[str, List[float]], output_dir: str, fold_num: str
 
     # Plot 2: AUC vs. Epochs
     ax2.plot(epochs_range, history['train_auc'], 'o-', label='Train AUC', color='blue', markersize=2)
+    if 'val_auc' in history and history['val_auc']:
+        ax2.plot(epochs_range, history['val_auc'], 'o-', label='Val AUC', color='orange', markersize=2)
     ax2.plot(epochs_range, history['test_auc'], 'o-', label='Test AUC', color='red', markersize=2)
-    ax2.set_title('Training and Test AUC', fontsize=10)
+    ax2.set_title('AUC over Epochs', fontsize=10)
     ax2.set_xlabel('Epoch', fontsize=12)
     ax2.set_ylabel('AUC', fontsize=12)
     ax2.legend()
@@ -725,7 +748,60 @@ class AverageMeter(object):
     def update(self, val, n=1):
         self.val, self.sum, self.count = val, self.sum + val * n, self.count + n
         self.avg = self.sum / self.count if self.count > 0 else 0
-        
+
+
+class ListDataset(Dataset):
+    """Thin wrapper that exposes a plain list of Data objects as a PyG Dataset."""
+    def __init__(self, data_list):
+        super().__init__()
+        self._data_list = data_list
+
+    def len(self):
+        return len(self._data_list)
+
+    def get(self, idx):
+        return self._data_list[idx]
+
+
+def build_smote_augmented_data(dataset, train_indices):
+    """Apply SMOTE only to the training split and return an augmented Data list.
+
+    Args:
+        dataset: MicroGraphAblationDataset (unaugmented, with self.full_tree stored).
+        train_indices: list of integer indices that belong to the training split.
+
+    Returns:
+        List of torch_geometric Data objects (originals + synthetic samples).
+    """
+    X = dataset.table.iloc[train_indices].values
+    y = [dataset.data_list[i].y.item() for i in train_indices]
+
+    label_counts = pd.Series(y).value_counts()
+    min_count = label_counts.min()
+    imbalance_ratio = label_counts.max() / min_count if min_count > 0 else float('inf')
+
+    augmented = [dataset.data_list[i] for i in train_indices]
+
+    if imbalance_ratio < 5.0:
+        return augmented
+
+    smote = SMOTE(random_state=42)
+    X_resampled, y_resampled = smote.fit_resample(X, y)
+    n_original = len(train_indices)
+    print(
+        f"SMOTE applied (imbalance ratio {imbalance_ratio:.1f}x). "
+        f"Train data expanded from {n_original} to {len(X_resampled)} samples."
+    )
+
+    for i in range(n_original, len(X_resampled)):
+        data = dataset._build_graph_from_sample(
+            dataset.fid, X_resampled[i], y_resampled[i],
+            f"smote_sample_{i}", dataset.full_tree
+        )
+        augmented.append(data)
+
+    return augmented
+
 
 def main():
     parser = argparse.ArgumentParser(description="Microbe GCN Model Training")
@@ -737,7 +813,7 @@ def main():
     parser.add_argument("--phylogeny_file_path", type=str, help="Path to the phylogeny tree file.")
     parser.add_argument("--fold", type=str, default='PRJDB11845', help="Current test study/fold name for LODO evaluation.")
     parser.add_argument("--output_dir", type=str, default="./graph_model_crc_workdir/v19", help="Root output directory.")
-    parser.add_argument("--feature_importance", type=lambda x: (str(x).lower() == 'true'), default=False, help="True 或 False")
+    parser.add_argument("--feature_importance", type=lambda x: (str(x).lower() == 'true'), default=False, help="True or False")
 
     # Data Arguments
     parser.add_argument("--label_column", type=str, default="group", help="Name of the label column in the metadata file.")
@@ -746,12 +822,12 @@ def main():
     parser.add_argument("--hidden_channels", type=int, default=100, help="Number of hidden units in GCN layers.")
     parser.add_argument("--heads", type=int, default=1, help="Number of attention heads in the GATConv layer.")
     parser.add_argument("--dropout_rate", type=float, default=0.0, help="Dropout rate used in the classifier head.")
-    parser.add_argument("--num_layers", type=int, default=5, help="模型中 GCN 层的总数。")
-    parser.add_argument("--act", type=str, default='relu', help="ffn 层中使用的激活函数。")
-    parser.add_argument("--ffn", type=bool, default=True, help="在GCN层中启用前馈网络(FFN)块。")
-    parser.add_argument("--residual", type=bool, default=True, help="在GCN层中启用残差连接。")
-    parser.add_argument("--norm_type", type=str, default='batch_norm', help="在GCN层中启用何种归一化。")
-    parser.add_argument("--readout", type=str, default='mean', help="在GCN层中启用何种读出操作。")
+    parser.add_argument("--num_layers", type=int, default=5, help="Total number of GCN layers in the model.")
+    parser.add_argument("--act", type=str, default='relu', help="Activation function used in FFN layers.")
+    parser.add_argument("--ffn", type=lambda x: str(x).lower() == 'true', default=True, help="Enable feed-forward network (FFN) block in GCN layers.")
+    parser.add_argument("--residual", type=lambda x: str(x).lower() == 'true', default=True, help="Enable residual connections in GCN layers.")
+    parser.add_argument("--norm_type", type=str, default='batch_norm', help="Normalization type used in GCN layers.")
+    parser.add_argument("--readout", type=str, default='mean', help="Readout aggregation method for graph-level representation.")
 
     # Training Hyperparameters
     parser.add_argument("--epochs", type=int, default=100)
@@ -812,11 +888,24 @@ def main():
         phylogeny_file_path=args.phylogeny_file_path, label_column=args.label_column
     )
     
-    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=args.workers)
+    # Stratified 10% split from training data for internal validation (early stopping)
+    train_labels_all = [data.y.item() for data in train_dataset.data_list]
+    all_indices = list(range(len(train_dataset)))
+    train_idx, val_idx = train_test_split(
+        all_indices, test_size=0.1, stratify=train_labels_all, random_state=args.seed
+    )
+
+    # SMOTE is applied only to the training split (after splitting) to prevent
+    # synthetic samples from leaking into the validation set.
+    train_augmented = build_smote_augmented_data(train_dataset, train_idx)
+    train_subset = ListDataset(train_augmented)
+    val_subset = Subset(train_dataset, val_idx)
+
+    train_loader = DataLoader(train_subset, batch_size=args.batch_size, shuffle=True, num_workers=args.workers)
+    val_loader = DataLoader(val_subset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
-    
-    
-    logger.info(f"Datasets loaded. Train samples: {len(train_dataset)}, Test samples: {len(test_dataset)}")
+
+    logger.info(f"Datasets loaded. Train samples: {len(train_subset)}, Val samples: {len(val_subset)}, Test samples: {len(test_dataset)}")
 
     class_weights_tensor = None
     # if num_classes > 2:
@@ -863,7 +952,10 @@ def main():
 
     if args.feature_importance == False:
         # Optimizer, and Scheduler
-        optimizer = optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)
+        if args.optimizer == 'adam':
+            optimizer = optim.Adam(model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)
+        else:
+            optimizer = optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=args.weight_decay)
         
         scheduler = None
         if args.lr_scheduler_type != 'none':
@@ -878,41 +970,46 @@ def main():
         
         # Training Loop
         logger.info(f"Starting training for fold {args.fold}...")
-        best_test_auc = -1.0
-        best_train_loss = float('inf')
+        best_val_loss = float('inf')
         early_stop_patience = 5
-        train_no_improve_count = 0
+        val_no_improve_count = 0
 
         history = {
-            'train_loss': [], 'test_loss': [],
-            'train_auc': [], 'test_auc': []
+            'train_loss': [], 'val_loss': [], 'test_loss': [],
+            'train_auc': [], 'val_auc': [], 'test_auc': []
         }
 
         for epoch in range(1, args.epochs + 1):
             train_metrics, _ = train_epoch(model, train_loader, optimizer, device, logger, epoch, scheduler, args, class_weights_tensor)
+            val_metrics, _, _, _ = evaluate_epoch(model, val_loader, device, logger, f"Val Ep {epoch}", class_weights_tensor)
             test_metrics, _, _, _ = evaluate_epoch(model, test_loader, device, logger, f"Test Ep {epoch}", class_weights_tensor)
 
             history['train_loss'].append(train_metrics['loss'])
             history['train_auc'].append(train_metrics['auc'])
+            history['val_loss'].append(val_metrics['loss'])
+            history['val_auc'].append(val_metrics['auc'])
             history['test_loss'].append(test_metrics['loss'])
             history['test_auc'].append(test_metrics['auc'])
 
-            # Save best model based on test AUC
-            if test_metrics['auc'] > best_test_auc:
-                best_test_auc = test_metrics['auc']
-                torch.save(model.state_dict(), best_model_path)
+            logger.info(
+                f"Epoch {epoch:03d} | "
+                f"Train Loss: {train_metrics['loss']:.4f} AUC: {train_metrics['auc']:.4f} | "
+                f"Val Loss: {val_metrics['loss']:.4f} AUC: {val_metrics['auc']:.4f} | "
+                f"Test AUC: {test_metrics['auc']:.4f}"
+            )
 
-            # Early stopping based on training loss
-            if train_metrics['loss'] < best_train_loss:
-                best_train_loss = train_metrics['loss']
-                train_no_improve_count = 0
+            # Save best model based on validation loss
+            if val_metrics['loss'] < best_val_loss:
+                best_val_loss = val_metrics['loss']
+                torch.save(model.state_dict(), best_model_path)
+                val_no_improve_count = 0
             else:
-                train_no_improve_count += 1
-                if train_no_improve_count >= early_stop_patience:
-                    logger.info(f"Early stopping triggered at epoch {epoch}: training loss did not decrease for {early_stop_patience} consecutive epochs.")
+                val_no_improve_count += 1
+                if val_no_improve_count >= early_stop_patience:
+                    logger.info(f"Early stopping triggered at epoch {epoch}: validation loss did not improve for {early_stop_patience} consecutive epochs.")
                     break
 
-        logger.info(f"Training for fold {args.fold} finished. Best Test AUC: {best_test_auc:.4f}")
+        logger.info(f"Training for fold {args.fold} finished. Best Val Loss: {best_val_loss:.4f}")
         plot_metrics(history, args.output_dir, args.fold, logger)
     
         # --- Final: Load Best Model and Save Predictions ---
